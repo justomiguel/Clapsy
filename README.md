@@ -8,7 +8,7 @@ Clapsy es una libreria espcialmente construida para reproducir los Algoritmos de
 
 2. Y luego realizar por la consola de comandos lo siguiente:
 
-           git clone https://github.com/justomiguel/libProg.git
+           git clone https://github.com/justomiguel/Clapsy.git
 
 3. Descargarse Maven (Seguir los pasos de la pagina y despues por consola hacer), de esa forma les bajara las dependencias, esto es opcional ya que la ide trae maven por defecto pero seria bueno que lo hagan
 
