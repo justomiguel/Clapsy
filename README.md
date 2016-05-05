@@ -1,4 +1,4 @@
-LibProg es una libreria espcialmente construida para la catedra de Programacion I & II, Laboratorio 2 y Algoritmos de la carrera de TSP e ISI de la UTN FRRe. 
+LibProg es una libreria espcialmente construida para reproducir los Algoritmos de la carrera de ISI de la UTN FRRe y probarlos en tiempo real, traduciendolos a JAVA y ejecutandolos!. 
 
 ## Como Usarla
 
@@ -19,7 +19,14 @@ LibProg es una libreria espcialmente construida para la catedra de Programacion 
 4. Pueden usar la libreria con una IDE de preferencia o bien usar INTELLIJ IDEA desde aqui! Bajense el community! Un abrazo!
 
     https://www.jetbrains.com/idea/download/
+    
+5. Abran el proyecto con la IDE y vayan hasta la clase Main que se encuentra en com/frre/practica/isi/algoritmos/genericos
 
+    ![](http://i.imgur.com/1DwNCJX.jpg)
+    
+6. Alli veran que la linea esta por ejecutar el algoritmo llamado Prueba3 que esta en la carpeta algoritmos. Por ahora solo funciona con estructuras repetitivas y condicionales. Prueben haciendo sus propios algoritmos! Para compilarlos y ejecutarlos solo deben hacer click derecho sobre el archivo y elegir la opcion de run. Y la magia sucede!!
+7. En algun momento tratare de agregar secuencias y archivos y demas temas! Pero ya los tienen disponibles en formato java tambien en la libreria! No se olviden de dar una estrella si les gusto!
+    
 ## License
 
     Copyright 2016 Justo Vargas

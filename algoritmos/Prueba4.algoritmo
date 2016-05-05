@@ -1,0 +1,21 @@
+Accion Prueba es;
+
+    Ambiente
+        numero:entero;
+        i:entero;
+
+    Algoritmo
+
+        Escribir("Comenzando");
+        numero = 0;
+        Mientras(i < 100)hacer
+            i := i +1;
+            Escribir(i)
+            Si(i mod 6 == 0)entonces
+                Escribir("****")
+            Fin_si
+        Fin_para
+
+    Fin_Algoritmo
+
+Fin_Accion;
