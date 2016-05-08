@@ -91,6 +91,9 @@ Accion Prueba es;
 Fin_Accion;
 ```
 
+* Como veran para escribir por pantalla y separar de variables o de cadenas explicitas deben usar la "," como lo hacemos en clase.
+
+
 **Usando setencias condicionales** 
 
 * Pueden usar el condicional simple usando ^ o | para concatenar expresiones mas complejas
@@ -101,7 +104,7 @@ Si(apellido = "Vargas" ^ nombre == "Migue")entonces;
 Fin_si
 ```
 
-* Obien usar el condicional alternativo
+* O bien usar el condicional alternativo
 
 ```
 Si(apellido = "Vargas" ^ nombre == "Migue")entonces;
@@ -110,6 +113,57 @@ sino
     Escribir("No esta bien!")
 Fin_si
 ```
+
+* O bien el multiple
+
+```
+Si(apellido = "Vargas" ^ nombre = "Migue")entonces;
+     Escribir("Grande ",apellido," ",nombre);
+sino si(apellido = "Bedoya")entonces
+     Escribir("Lobo: ",apellido," ",nombre);
+sino
+     Escribir("No esta bien!")
+Fin_si
+```
+
+**Usando setencias repetitivas** 
+
+* Manejada por contador o el para
+
+```
+Para(i=0 hasta 50, i:=i+2)hacer
+   numero := numero +1;
+   Escribir(numero)
+   Si(numero mod 6 == 0)entonces
+     Escribir("****")
+   Fin_si
+Fin_para
+```
+
+* Post Test o el repetir
+
+```
+Repetir
+   numero := numero +1;
+   Si(numero mod 2 == 0)entonces
+      Escribir(numero)
+   Fin_si
+Hasta(numero < 100);
+```
+
+* Pre Test o el mientras
+
+```
+Mientras(i < 100)hacer
+  i := i +1;
+  Escribir(i)
+  Si(i mod 6 == 0)entonces
+    Escribir("****")
+  Fin_si
+Fin_mientras
+```
+
+En la medida que pueda agregare mas cosas. Estaria genial que vayan probando la libreria y me digan si con algun ejercicio no les anduvo y me lo pasen!
 
 ## License
 

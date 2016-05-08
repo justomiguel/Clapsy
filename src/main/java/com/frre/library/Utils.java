@@ -420,7 +420,7 @@ public class Utils {
             for (int i = 0; i < actions.length; i++) {
                 String subline = actions[i];
                 if (subline.contains(" | ")) {
-                    String[] ires = subline.split(Pattern.quote(" or "));
+                    String[] ires = subline.split(Pattern.quote(" | "));
                     for (int j = 0; j < ires.length; j++) {
                         String[] line = ires[j].split(" == ");
                         if (line.length > 1 && theVariables.get(line[0]) != null && theVariables.get(line[0]).trim().equalsIgnoreCase("String")) {
@@ -444,8 +444,8 @@ public class Utils {
                     builder.append(" && ");
                 }
             }
-        } else if (logic.contains(" or ")) {
-            String[] actions = logic.split(Pattern.quote(" or "));
+        } else if (logic.contains(" | ")) {
+            String[] actions = logic.split(Pattern.quote(" | "));
             for (int i = 0; i < actions.length; i++) {
                 String subline = actions[i];
                 String[] line = subline.split(" == ");

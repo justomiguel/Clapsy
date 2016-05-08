@@ -14,7 +14,7 @@ Accion Prueba es;
             Si(i mod 6 == 0)entonces
                 Escribir("****")
             Fin_si
-        Fin_para
+        Fin_mientras
 
     Fin_Algoritmo
 
