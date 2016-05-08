@@ -41,7 +41,7 @@ public class Constants {
     public static final String ENTONCES = ")entonces";
     public static final String FIN = "Fin";
     public static final String SINO = "sino";
-    public static final String SINO_SI = "sino si";
+    public static final String SINO_SI = "sino si(";
     public static final String MIENTRAS = "Mientras(";
     public static final String HACER = ")hacer";
     public static final String REPETIR = "Repetir";

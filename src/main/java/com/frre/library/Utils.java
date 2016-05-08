@@ -384,8 +384,8 @@ public class Utils {
             writer.write("do { \n");
         }  else if (line.trim().equalsIgnoreCase(SINO)) {
             writer.write("} else { \n");
-        } else if (line.trim().equalsIgnoreCase(SINO_SI)) {
-            String logic = line.substring(getPositionOf(SI, line) + SI.length(), getPositionOf(ENTONCES, line));
+        } else if (line.contains(SINO_SI)) {
+            String logic = line.substring(getPositionOf(SINO_SI, line) + SINO_SI.length(), getPositionOf(ENTONCES, line));
             logic = logic.replaceAll(" = ", " == ").replaceAll(" <> ", " != ");
             logic = replaceWithEquals(logic);
             writer.write("} else if (" + logic + "){\n");
@@ -419,8 +419,8 @@ public class Utils {
             String[] actions = logic.split(Pattern.quote(" ^ "));
             for (int i = 0; i < actions.length; i++) {
                 String subline = actions[i];
-                if (subline.contains(" or ")) {
-                    String[] ires = subline.split(" or ");
+                if (subline.contains(" | ")) {
+                    String[] ires = subline.split(Pattern.quote(" or "));
                     for (int j = 0; j < ires.length; j++) {
                         String[] line = ires[j].split(" == ");
                         if (line.length > 1 && theVariables.get(line[0]) != null && theVariables.get(line[0]).trim().equalsIgnoreCase("String")) {
@@ -445,12 +445,12 @@ public class Utils {
                 }
             }
         } else if (logic.contains(" or ")) {
-            String[] actions = logic.split(" or ");
+            String[] actions = logic.split(Pattern.quote(" or "));
             for (int i = 0; i < actions.length; i++) {
                 String subline = actions[i];
                 String[] line = subline.split(" == ");
                 if (line.length > 1 && theVariables.get(line[0]) != null &&  theVariables.get(line[0]).trim().equalsIgnoreCase("String")) {
-                    logic.replaceAll(subline, line[0].trim() + ".equalsIgnoreCase(" + line[1].trim() + ")");
+                    builder.append(line[0].trim() + ".equalsIgnoreCase(" + line[1].trim() + ")");
                 } else {
                     builder.append(subline);
                 }
@@ -462,7 +462,7 @@ public class Utils {
             String subline = logic;
             String[] line = subline.split(" == ");
             if (line.length > 1 && theVariables.get(line[0]) != null && theVariables.get(line[0]).trim().equalsIgnoreCase("String")) {
-                logic.replaceAll(subline, line[0].trim() + ".equalsIgnoreCase(" + line[1].trim() + ")");
+                builder.append(line[0].trim() + ".equalsIgnoreCase(" + line[1].trim() + ")");
             } else {
                 builder.append(subline);
             }
@@ -544,5 +544,14 @@ public class Utils {
             } catch (Exception ex) {/*ignore*/}
         }
         compilationAndExec(writer);
+    }
+
+    public static int findWord(String[] args, String word) {
+        for (int i = 0; i < args.length; i++) {
+            if (args[i].equalsIgnoreCase(word)){
+                return i;
+            }
+        }
+        return -1;
     }
 }

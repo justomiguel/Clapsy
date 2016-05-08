@@ -10,8 +10,10 @@ Accion Prueba es;
         Leer(nombre);
         Escribir("Ingrese apellido");
         Leer(apellido);
-        Si(apellido = "Vargas" ^ nombre == "Migue")entonces;
+        Si(apellido = "Vargas" ^ nombre = "Migue")entonces;
              Escribir("Grande ",apellido," ",nombre);
+        sino si(apellido = "Bedoya")entonces
+            Escribir("Lobo: ",apellido," ",nombre);
         sino
             Escribir("No esta bien!")
         Fin_si

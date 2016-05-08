@@ -1,6 +1,6 @@
 Clapsy es una libreria espcialmente construida para reproducir los Algoritmos de la carrera de ISI de la UTN FRRe y probarlos en tiempo real, traduciendolos a JAVA y ejecutandolos!. 
 
-## Como Usarla Normal Mode
+## Como Usarla //Normal Mode
 
 1. Deberan descargar el archivo jar desde aqui...
 
@@ -12,9 +12,15 @@ Clapsy es una libreria espcialmente construida para reproducir los Algoritmos de
 $ java -jar Clapsy-1.0.jar NOMBRE_TU_ALGORITMO.algoritmo
 ```
 
-Si bien no es una convencion pueden poner a los files que usan para el algoritmo como .algoritmo. La libreria tomara el archivo y lo tratara de ejecutar. 
+Si bien no es una convencion pueden poner a los files que usan para el algoritmo como .algoritmo. La libreria tomara el archivo y lo tratara de ejecutar. Traten de seguir las convenciones de escritura que son bien similares o iguales a las de la catedra, explicada mas abajo.
+ En la carpeta de algoritmos pueden encontrar algunos ejemplos para que puedan probarla de la forma explicada ayer..
+ 
+```
+ $ java -jar Clapsy-1.0.jar algoritmos/Prueba.algoritmo
+```
 
-## Como Usarla For Pro Users
+
+## Como Usarla //For Pro Users
 
 1. Para poder bajar el codigo fuente deberan de tener instalado GIT en su computadora... Para bajarse pueden descargarse GIT desd aqui...
 
@@ -40,16 +46,69 @@ Si bien no es una convencion pueden poner a los files que usan para el algoritmo
 
     ![](http://i.imgur.com/1DwNCJX.jpg)
     
-6. Alli veran que la linea esta por ejecutar el algoritmo llamado Prueba3 que esta en la carpeta algoritmos. Por ahora solo funciona con estructuras repetitivas y condicionales. Prueben haciendo sus propios algoritmos! Para compilarlos y ejecutarlos solo deben hacer click derecho sobre el archivo y elegir la opcion de run. Y la magia sucede!!
+6. Para compilarlos y ejecutarlos solo deben hacer click derecho sobre el archivo y elegir la opcion de run y colocar sobre las opciones de ejecucion el nombre del archivo que quieran ejecutar. Y la magia sucede!!
 
-## Un Algoritmo basico
+## Documentacion
+
+**Un Algoritmo basico** 
 
 Todo algoritmo debe tener una estructura similar a la siguiente de forma que el analizador la tome...
 
-```JAVA
-if (isAwesome){
-  return true
-}
+```
+Accion AlgunNombre es;
+
+    Ambiente
+        //Variables aqui
+
+    Algoritmo
+
+        //Cuerpo del algoritmo aqui
+
+    Fin_Algoritmo
+
+Fin_Accion;
+```
+
+**Definiendo Variables y Solicitando datos al usuario** 
+
+```
+Accion Prueba es;
+
+    Ambiente
+        nombre: AlfaNumerico;
+        apellido: AlfaNumerico;
+
+    Algoritmo
+
+        Escribir("Ingrese nombre");
+        Leer(nombre);
+        Escribir("Ingrese apellido");
+        Leer(apellido);
+        Escribir("Programando like a champ ",apellido," ",nombre);
+        
+    Fin_Algoritmo
+
+Fin_Accion;
+```
+
+**Usando setencias condicionales** 
+
+* Pueden usar el condicional simple usando ^ o | para concatenar expresiones mas complejas
+
+```
+Si(apellido = "Vargas" ^ nombre == "Migue")entonces;
+    Escribir("Grande ",apellido," ",nombre);
+Fin_si
+```
+
+* Obien usar el condicional alternativo
+
+```
+Si(apellido = "Vargas" ^ nombre == "Migue")entonces;
+    Escribir("Grande ",apellido," ",nombre);
+sino
+    Escribir("No esta bien!")
+Fin_si
 ```
 
 ## License

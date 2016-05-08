@@ -13,7 +13,7 @@ public class Main {
         if (args.length == 0){
             System.out.println("Debes especificar un archivo valido para analizar! Verifica que sea accesible desde donde lo estes invocando");
         } else {
-            int search = Arrays.binarySearch(args, "-DebugMode");
+            int search = Utils.findWord(args, "-DebugMode");
             boolean DEBUG_MODE =  search != -1?true:false;
             try{
                 Utils.analizeAndExec(args[0],DEBUG_MODE);

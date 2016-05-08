@@ -7,6 +7,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/algoritmos/Prueba.algoritmo" afterPath="$PROJECT_DIR$/algoritmos/Prueba.algoritmo" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java" afterPath="$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/frre/library/data/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/com/frre/library/data/Constants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/frre/practica/isi/algoritmos/genericos/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/frre/practica/isi/algoritmos/genericos/Main.java" />
     </list>
     <ignored path="libProg.iws" />
@@ -34,8 +35,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.29166666">
-                <caret line="14" column="154" selection-start-line="14" selection-start-column="154" selection-end-line="14" selection-end-column="154" />
+              <first_editor vertical-scroll-proportion="0.56953645">
+                <caret line="103" column="35" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="35" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -68,25 +69,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Prueba4.algoritmo" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/algoritmos/Prueba4.algoritmo">
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/library/data/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38310412">
-              <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="421" column="41" selection-start-line="421" selection-start-column="41" selection-end-line="421" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.2730845">
+              <caret line="453" column="16" selection-start-line="453" selection-start-column="16" selection-end-line="453" selection-end-column="16" />
               <folding>
                 <element signature="e#962#978#0" expanded="true" />
                 <element signature="e#12506#12522#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Prueba4.algoritmo" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/algoritmos/Prueba4.algoritmo">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,7 +116,7 @@
         <entry file="file://$PROJECT_DIR$/algoritmos/Prueba.algoritmo">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+              <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -126,16 +137,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Prueba.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Prueba.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -205,15 +206,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/frre/library/archivos/GeneradorArchivos.java" />
         <option value="$PROJECT_DIR$/algoritmos/Prueba2.algoritmo" />
         <option value="$PROJECT_DIR$/src/main/java/com/frre/library/JavaSourceFromString.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/frre/library/data/Constants.java" />
         <option value="$PROJECT_DIR$/algoritmos/Prueba3.algoritmo" />
         <option value="$PROJECT_DIR$/algoritmos/Prueba4.algoritmo" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Prueba.algoritmo" />
-        <option value="$PROJECT_DIR$/src/main/java/com/frre/practica/isi/algoritmos/genericos/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/algoritmos/Prueba.algoritmo" />
+        <option value="$PROJECT_DIR$/src/main/java/com/frre/practica/isi/algoritmos/genericos/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/frre/library/data/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java" />
       </list>
     </option>
   </component>
@@ -550,7 +551,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="com.frre.practica.isi.algoritmos.genericos.Main" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="Prueba.txt -DebugMode" />
+      <option name="PROGRAM_PARAMETERS" value="algoritmos/Prueba.algoritmo -DebugMode" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -944,16 +945,16 @@
       <workItem from="1462390182989" duration="1646000" />
       <workItem from="1462393555679" duration="21447000" />
       <workItem from="1462481692608" duration="1878000" />
-      <workItem from="1462734003880" duration="3936000" />
+      <workItem from="1462734003880" duration="5700000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95398000" />
+    <option name="totallyTimeSpent" value="97162000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1535" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32791877" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -964,7 +965,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46708074" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28925082" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28925082" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -1091,8 +1092,38 @@
           <properties />
           <option name="timeStamp" value="72" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java</url>
+          <line>532</line>
+          <properties />
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java</url>
+          <line>292</line>
+          <properties />
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java</url>
+          <line>291</line>
+          <properties />
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java</url>
+          <line>390</line>
+          <properties />
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java</url>
+          <line>387</line>
+          <properties />
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="73" />
+      <option name="time" value="78" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1354,36 +1385,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.29166666">
-            <caret line="14" column="154" selection-start-line="14" selection-start-column="154" selection-end-line="14" selection-end-column="154" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Prueba.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/library/data/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53608245">
-          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/Arrays.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33247423">
@@ -1399,35 +1400,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.607143">
           <caret line="236" column="25" selection-start-line="236" selection-start-column="25" selection-end-line="236" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/practica/isi/algoritmos/genericos/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="421" column="41" selection-start-line="421" selection-start-column="41" selection-end-line="421" selection-end-column="41" />
-          <folding>
-            <element signature="e#962#978#0" expanded="true" />
-            <element signature="e#12506#12522#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/algoritmos/Prueba.algoritmo">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1448,11 +1420,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.56953645">
+            <caret line="103" column="35" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="35" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/library/data/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/algoritmos/Prueba4.algoritmo">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38310412">
+        <state vertical-scroll-proportion="0.0">
           <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/algoritmos/Prueba.algoritmo">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/practica/isi/algoritmos/genericos/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2730845">
+          <caret line="453" column="16" selection-start-line="453" selection-start-column="16" selection-end-line="453" selection-end-column="16" />
+          <folding>
+            <element signature="e#962#978#0" expanded="true" />
+            <element signature="e#12506#12522#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
