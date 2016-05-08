@@ -33,7 +33,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Clapsy" target="1.6" />
+      <module name="Clapsy" target="1.7" />
       <module name="libProg" target="1.6" />
     </bytecodeTargetLevel>
   </component>

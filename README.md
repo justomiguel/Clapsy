@@ -1,10 +1,15 @@
 Clapsy es una libreria espcialmente construida para reproducir los Algoritmos de la carrera de ISI de la UTN FRRe y probarlos en tiempo real, traduciendolos a JAVA y ejecutandolos!. 
 
-## Como Usarla
+## Como Instalarla For Dummies
+
+
+## Como Instalarla For Pro Users
 
 1. Para poder bajar el codigo fuente deberan de tener instalado GIT en su computadora... Para bajarse pueden descargarse GIT desd aqui...
 
-    https://git-scm.com/downloads
+    ```
+        https://git-scm.com/downloads
+    ```
 
 2. Y luego realizar por la consola de comandos lo siguiente:
 
@@ -25,8 +30,17 @@ Clapsy es una libreria espcialmente construida para reproducir los Algoritmos de
     ![](http://i.imgur.com/1DwNCJX.jpg)
     
 6. Alli veran que la linea esta por ejecutar el algoritmo llamado Prueba3 que esta en la carpeta algoritmos. Por ahora solo funciona con estructuras repetitivas y condicionales. Prueben haciendo sus propios algoritmos! Para compilarlos y ejecutarlos solo deben hacer click derecho sobre el archivo y elegir la opcion de run. Y la magia sucede!!
-7. En algun momento tratare de agregar secuencias y archivos y demas temas! Pero ya los tienen disponibles en formato java tambien en la libreria! No se olviden de dar una estrella si les gusto!
-    
+
+## Un Algoritmo basico
+
+Todo algoritmo debe tener una estructura similar a la siguiente de forma que el analizador la tome...
+
+```JAVA
+if (isAwesome){
+  return true
+}
+```
+
 ## License
 
     Copyright 2016 Justo Vargas

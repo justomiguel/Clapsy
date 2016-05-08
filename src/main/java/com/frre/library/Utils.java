@@ -353,8 +353,10 @@ public class Utils {
         while (i < actions.length) {
             String line = actions[i].trim();
             line = line.replace(" mod ", " % ");
-            if (!detectAction(line, writer)) {
-                specialAction(line, writer, pilaAcciones);
+            if (!line.startsWith("//")){
+                if (!detectAction(line, writer)) {
+                    specialAction(line, writer, pilaAcciones);
+                }
             }
             i++;
         }
@@ -407,8 +409,8 @@ public class Utils {
 
     public static String replaceWithEquals(String logic) {
         StringBuilder builder = new StringBuilder();
-        if (logic.contains(" and ")) {
-            String[] actions = logic.split(" and ");
+        if (logic.contains(" ^ ")) {
+            String[] actions = logic.split(" ^ ");
             for (int i = 0; i < actions.length; i++) {
                 String subline = actions[i];
                 if (subline.contains(" or ")) {
