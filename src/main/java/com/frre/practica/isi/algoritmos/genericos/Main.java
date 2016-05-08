@@ -13,8 +13,10 @@ public class Main {
         if (args.length == 0){
             System.out.println("Debes especificar un archivo valido para analizar! Verifica que sea accesible desde donde lo estes invocando");
         } else {
+            int search = Arrays.binarySearch(args, "-DebugMode");
+            boolean DEBUG_MODE =  search != -1?true:false;
             try{
-                Utils.analizeAndExec(args[0]);
+                Utils.analizeAndExec(args[0],DEBUG_MODE);
             } catch (Exception e){
                 System.out.println("Ha sucedido un error utilizando la libreria. Verifica que el algoritmo este correcto.");
                 System.out.println("Detalles del Error: "+e.getMessage());

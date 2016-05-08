@@ -14,6 +14,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.regex.Pattern;
 
 import com.frre.library.data.Constants;
 import org.apache.commons.io.IOUtils;
@@ -32,6 +33,7 @@ import static com.frre.library.data.Constants.SPACE;
  */
 public class Utils {
 
+    private static boolean DEBUG_MODE = false;
     public static HashMap<String, String> theVariables = new HashMap<String, String>();
 
 
@@ -287,6 +289,10 @@ public class Utils {
 
         System.out.println("Estado Compilacion: " + (success?"Correcto":"Incorrecto revisar algoritmo"));
 
+        if (DEBUG_MODE){
+            System.out.println(writer.toString());
+        }
+
         if (success) {
             try {
 
@@ -410,7 +416,7 @@ public class Utils {
     public static String replaceWithEquals(String logic) {
         StringBuilder builder = new StringBuilder();
         if (logic.contains(" ^ ")) {
-            String[] actions = logic.split(" ^ ");
+            String[] actions = logic.split(Pattern.quote(" ^ "));
             for (int i = 0; i < actions.length; i++) {
                 String subline = actions[i];
                 if (subline.contains(" or ")) {
@@ -512,10 +518,11 @@ public class Utils {
         return sb.toString();
     }
 
-    public static void analizeAndExec(String file) throws IOException {
+    public static void analizeAndExec(String file, boolean debugMode) throws IOException {
         FileInputStream inputStream = null;
         StringWriter writer = null;
         try {
+            DEBUG_MODE = debugMode;
             inputStream = new FileInputStream(file);
             writer = new StringWriter();
             PrintWriter out = new PrintWriter(writer);

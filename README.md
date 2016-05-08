@@ -1,29 +1,40 @@
 Clapsy es una libreria espcialmente construida para reproducir los Algoritmos de la carrera de ISI de la UTN FRRe y probarlos en tiempo real, traduciendolos a JAVA y ejecutandolos!. 
 
-## Como Instalarla For Dummies
+## Como Usarla Normal Mode
 
+1. Deberan descargar el archivo jar desde aqui...
 
-## Como Instalarla For Pro Users
+    [Archivo JAR](https://github.com/justomiguel/Clapsy/raw/master/Clapsy-1.0.jar)
+
+2. Para ejecutarlo deberan abrir una terminal (linux) o el famoso simbolo del sistema (Windows) y con eso desplazarce hasta donde descargaron el jar y ejecutar lo siguiente:
+
+```
+$ java -jar Clapsy-1.0.jar NOMBRE_TU_ALGORITMO.algoritmo
+```
+
+Si bien no es una convencion pueden poner a los files que usan para el algoritmo como .algoritmo. La libreria tomara el archivo y lo tratara de ejecutar. 
+
+## Como Usarla For Pro Users
 
 1. Para poder bajar el codigo fuente deberan de tener instalado GIT en su computadora... Para bajarse pueden descargarse GIT desd aqui...
 
-    ```
-        https://git-scm.com/downloads
-    ```
+    [Link de Descarga de GIT](https://git-scm.com/downloads)
 
 2. Y luego realizar por la consola de comandos lo siguiente:
 
-           git clone https://github.com/justomiguel/Clapsy.git
+```
+    git clone https://github.com/justomiguel/Clapsy.git
+```
 
-3. Descargarse Maven (Seguir los pasos de la pagina y despues por consola hacer), de esa forma les bajara las dependencias, esto es opcional ya que la ide trae maven por defecto pero seria bueno que lo hagan
+3. [Descarga de Maven](https://maven.apache.org/install.html) (Seguir los pasos de la pagina y despues por consola hacer), de esa forma les bajara las dependencias, esto es opcional ya que la ide trae maven por defecto pero seria bueno que lo hagan
 
-        https://maven.apache.org/install.html
-    
-        mvn clean install
-    
+```
+    mvn clean install   
+```
+
 4. Pueden usar la libreria con una IDE de preferencia o bien usar INTELLIJ IDEA desde aqui! Bajense el community! Un abrazo!
 
-    https://www.jetbrains.com/idea/download/
+    [Descarga de la IDE](https://www.jetbrains.com/idea/download/)
     
 5. Abran el proyecto con la IDE y vayan hasta la clase Main que se encuentra en com/frre/practica/isi/algoritmos/genericos
 
