@@ -1,19 +1,26 @@
 Accion Prueba es;
 
     Ambiente
-        numero:entero;
+        cont:entero;
         i:entero;
+        j:entero;
 
     Algoritmo
 
-        Escribir("Comenzando");
+        Escribir("Escribir todos los numeros primos del 1 al 100");
         numero = 0;
+        i = 1;
         Mientras(i < 100)hacer
-            i := i +1;
-            Escribir(i)
-            Si(i mod 6 == 0)entonces
-                Escribir("****")
+            cont := 0;
+            Para(j=1 hasta i, j++)hacer
+                Si(i mod j = 0)entonces
+                    cont := cont + 1;
+                Fin_si
+            Fin_para
+            Si(cont = 2)entonces
+                Escribir(i);
             Fin_si
+            i := i +1;
         Fin_mientras
 
     Fin_Algoritmo

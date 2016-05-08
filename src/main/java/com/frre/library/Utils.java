@@ -409,7 +409,7 @@ public class Utils {
             if (aumento.contains("=")){
                 aumento = aumento.replace(":=","=");
             }
-            writer.write("for("+letter+"="+init+";"+letter+" < "+tope+";"+letter+aumento+") { \n");
+            writer.write("for("+letter+"="+init+";"+letter+" <= "+tope+";"+letter+aumento+") { \n");
         }
     }
 
