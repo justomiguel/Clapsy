@@ -163,6 +163,43 @@ Mientras(i < 100)hacer
 Fin_mientras
 ```
 
+**Poniendonos pro!** 
+
+* Hacer un algoritmo que imprima los numeros primos del 1 al 100
+
+```
+Accion Prueba es;
+
+    Ambiente
+        cont:entero;
+        i:entero;
+        j:entero;
+
+    Algoritmo
+
+        Escribir("Escribir todos los numeros primos del 1 al 100");
+        numero = 0;
+        i = 2;
+        //escribo el 1 por que es primo comienzo desde el 2 sino la logica del condicional no me sirve
+        Escribir(1);
+        Mientras(i < 100)hacer
+            cont := 0;
+            Para(j=1 hasta i, j++)hacer
+                Si(i mod j = 0)entonces
+                    cont := cont + 1;
+                Fin_si
+            Fin_para
+            Si(cont = 2)entonces
+                Escribir(i);
+            Fin_si
+            i := i +1;
+        Fin_mientras
+
+    Fin_Algoritmo
+
+Fin_Accion;
+```
+
 En la medida que pueda agregare mas cosas. Estaria genial que vayan probando la libreria y me digan si con algun ejercicio no les anduvo y me lo pasen!
 
 ## License
