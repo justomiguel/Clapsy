@@ -178,8 +178,8 @@ Accion Prueba es;
     Algoritmo
 
         Escribir("Escribir todos los numeros primos del 1 al 100");
-        numero = 0;
-        i = 2;
+        numero := 0;
+        i := 2;
         //escribo el 1 por que es primo comienzo desde el 2 sino la logica del condicional no me sirve
         Escribir(1);
         Mientras(i < 100)hacer
