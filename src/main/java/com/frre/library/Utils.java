@@ -17,6 +17,7 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 import com.frre.library.data.Constants;
+import com.frre.practica.isi.algoritmos.MyLogger;
 import org.apache.commons.io.IOUtils;
 
 import javax.tools.DiagnosticCollector;
@@ -28,13 +29,16 @@ import static com.frre.library.data.Constants.*;
 import static com.frre.library.data.Constants.SPACE;
 
 /**
- *
  * @author Cleo
  */
 public class Utils {
 
-    private static boolean DEBUG_MODE = false;
+    public static final String SI = "SI";
+    public static final String SEGUN = "Segun(";
+    private static  int SEGUN_COUNTER = 0;
+    public static boolean DEBUG_MODE = false;
     public static HashMap<String, String> theVariables = new HashMap<String, String>();
+    private static String SEGUN_VARIABLE;
 
 
     public static <T> T tranformAccordingType(Class<T> type, String string) {
@@ -48,7 +52,7 @@ public class Utils {
             int day = Integer.parseInt(date[0].trim());
             Date d;
             Calendar cal = GregorianCalendar.getInstance();
-            cal.set( year, month, day);
+            cal.set(year, month, day);
             d = cal.getTime();
             return (T) d;
         } else if (type.isAssignableFrom(Fecha.class)) {
@@ -75,7 +79,7 @@ public class Utils {
             int day = Generador.generarEnteroAleatorio(1, 31);
             Date d;
             Calendar cal = GregorianCalendar.getInstance();
-            cal.set( year, month, day);
+            cal.set(year, month, day);
             d = cal.getTime();
             return (T) d;
         } else if (type.isAssignableFrom(Fecha.class)) {
@@ -84,12 +88,12 @@ public class Utils {
             int day = Generador.generarEnteroAleatorio(1, 31);
             Date d;
             Calendar cal = GregorianCalendar.getInstance();
-            cal.set( year, month, day);
+            cal.set(year, month, day);
             d = cal.getTime();
             SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
             return (T) new Fecha(sm.format(d));
         } else if (type.isAssignableFrom(double.class) || (type.isAssignableFrom(Double.class))) {
-            return (T) Generador.generarDecimalAleatorio(0,500);
+            return (T) Generador.generarDecimalAleatorio(0, 500);
         } else if (type.isAssignableFrom(float.class) || type.isAssignableFrom(Float.class)) {
             return (T) new Float(Generador.generarEnteroAleatorio(0, 500));
         } else if (type.isAssignableFrom(int.class) || type.isAssignableFrom(Integer.class)) {
@@ -104,21 +108,21 @@ public class Utils {
     public static <T> T getValueAccordingTypeAndMethodName(Class<T> type, String methodName) {
         methodName = methodName.toLowerCase();
         if (type.isAssignableFrom(String.class)) {
-            if (methodName.contains("nom") && methodName.contains("ap")){
-                return (T) String.valueOf(Generador.generarNombreAleatorio()+","+Generador.generarApellidoAleatorio());
-            } else if (methodName.contains("apellido")){
+            if (methodName.contains("nom") && methodName.contains("ap")) {
+                return (T) String.valueOf(Generador.generarNombreAleatorio() + "," + Generador.generarApellidoAleatorio());
+            } else if (methodName.contains("apellido")) {
                 return (T) Generador.generarApellidoAleatorio();
-            } else if (methodName.contains("nombre")){
+            } else if (methodName.contains("nombre")) {
                 return (T) Generador.generarNombreAleatorio();
-            }  else if (methodName.contains("provincia") || methodName.contains("pcia")){
+            } else if (methodName.contains("provincia") || methodName.contains("pcia")) {
                 return (T) Generador.generarPciaAleatorio();
-            }  else if (methodName.contains("pais") || methodName.contains("country")){
+            } else if (methodName.contains("pais") || methodName.contains("country")) {
                 return (T) Generador.generarPaisAleatorio();
-            }   else if (methodName.contains("patente") || methodName.contains("pat")){
+            } else if (methodName.contains("patente") || methodName.contains("pat")) {
                 return (T) Generador.generarPaisAleatorio();
-            }  else if (methodName.contains("localidad") || methodName.contains("loc") || methodName.contains("local")){
+            } else if (methodName.contains("localidad") || methodName.contains("loc") || methodName.contains("local")) {
                 return (T) Generador.generarLocalidadAleatorio();
-            }  else if (methodName.contains("titulo") || methodName.contains("tit") || methodName.contains("materia") || methodName.contains("mat")){
+            } else if (methodName.contains("titulo") || methodName.contains("tit") || methodName.contains("materia") || methodName.contains("mat")) {
                 return (T) Generador.generarPalabraConArticuloAleatoria();
             }
             return (T) Generador.generarPalabraSinArticuloAleatoria();
@@ -128,7 +132,7 @@ public class Utils {
             int day = Generador.generarEnteroAleatorio(1, 31);
             Date d;
             Calendar cal = GregorianCalendar.getInstance();
-            cal.set( year, month, day);
+            cal.set(year, month, day);
             d = cal.getTime();
             return (T) d;
         } else if (type.isAssignableFrom(Fecha.class)) {
@@ -137,20 +141,20 @@ public class Utils {
             int day = Generador.generarEnteroAleatorio(1, 31);
             Date d;
             Calendar cal = GregorianCalendar.getInstance();
-            cal.set( year, month, day);
+            cal.set(year, month, day);
             d = cal.getTime();
             SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
             return (T) new Fecha(sm.format(d));
         } else if (type.isAssignableFrom(double.class) || (type.isAssignableFrom(Double.class))) {
-            return (T) Generador.generarDecimalAleatorio(0,500);
+            return (T) Generador.generarDecimalAleatorio(0, 500);
         } else if (type.isAssignableFrom(float.class) || type.isAssignableFrom(Float.class)) {
             return (T) new Float(Generador.generarEnteroAleatorio(0, 500));
         } else if (type.isAssignableFrom(int.class) || type.isAssignableFrom(Integer.class)) {
             //takeout all spaces
             Integer integer = Generador.generarEnteroAleatorio(0, 500);
-            if (methodName.contains("dni")){
+            if (methodName.contains("dni")) {
                 integer = Generador.generarDNIAleatorio();
-            } else if (methodName.contains("legajo") || methodName.contains("leg")){
+            } else if (methodName.contains("legajo") || methodName.contains("leg")) {
                 integer = Generador.generarLegajoAleatorio();
             }
             return (T) integer;
@@ -158,8 +162,8 @@ public class Utils {
         return null;
         //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public static <T> T[] copyArray(T[] vector){
+
+    public static <T> T[] copyArray(T[] vector) {
         T[] another = (T[]) Array.newInstance(vector.getClass().getComponentType(), vector.length);
         System.arraycopy(vector, 0, another, 0, vector.length);
         return another;
@@ -171,7 +175,7 @@ public class Utils {
         String restOfMethodName = fieldName.substring(1, fieldName.length());
         return Constants.SET + firstWithCapitalLetter + restOfMethodName;
     }
-    
+
     public static String getGetMethod(String fieldName) {
         // TODO Auto-generated method stub
         String firstWithCapitalLetter = fieldName.toUpperCase().substring(0, 1);
@@ -181,14 +185,14 @@ public class Utils {
     }
 
     public static void handleException(Exception ex) {
-        System.out.println(Constants.EXCEPCION_OCURRIDA_ + ex.getClass().getName()+" "+ex.getMessage());
+        System.out.println(Constants.EXCEPCION_OCURRIDA_ + ex.getClass().getName() + " " + ex.getMessage());
     }
-    
+
     public static IBinaryTree buildTree(Class theClass, Object[] inorder, Object[] postorder) {
         try {
             if (inorder.length == 0)
                 return null;
-            if (inorder.length == 1){
+            if (inorder.length == 1) {
                 IBinaryTree tree = ((IBinaryTree) theClass.newInstance());
                 tree.setValue(inorder[0]);
                 return tree;
@@ -205,10 +209,10 @@ public class Utils {
             if (i < inorder.length - 1) {
                 root.setRighSon(buildTree(theClass,
                         Arrays.copyOfRange(inorder, i + 1, inorder.length),
-                        Arrays.copyOfRange(postorder, i, postorder.length - 1)));            
+                        Arrays.copyOfRange(postorder, i, postorder.length - 1)));
             }
             if (i > 0) {
-                root.setLeftSon(buildTree(theClass, 
+                root.setLeftSon(buildTree(theClass,
                         Arrays.copyOfRange(inorder, 0, i),
                         Arrays.copyOfRange(postorder, 0, i)));
             }
@@ -220,10 +224,10 @@ public class Utils {
             ex.printStackTrace();
         }
         return null;
-}
+    }
 
     public static boolean esMenor(Object obj1, Object obj2) {
-        return  compareTo(obj1, obj2) < 0;
+        return compareTo(obj1, obj2) < 0;
     }
 
     public static int compareTo(Object obj1, Object obj2) {
@@ -232,8 +236,8 @@ public class Utils {
             int currentFieldNumber = 0;
             int claves = 0;
             for (Field f : obj1.getClass().getDeclaredFields()) {
-                if (f.getAnnotation(Clave.class)!=null){
-                    claves+=1;
+                if (f.getAnnotation(Clave.class) != null) {
+                    claves += 1;
                 }
             }
 
@@ -265,11 +269,11 @@ public class Utils {
     }
 
     public static String getType(String type) {
-        if (type.equalsIgnoreCase("Alfanumerico") || type.equalsIgnoreCase("cadena") || type.equalsIgnoreCase("char")|| type.equalsIgnoreCase("caracter") ){
+        if (type.equalsIgnoreCase("Alfanumerico") || type.equalsIgnoreCase("cadena") || type.equalsIgnoreCase("char") || type.equalsIgnoreCase("caracter")) {
             return "String";
-        } else if (type.equalsIgnoreCase("entero")){
+        } else if (type.equalsIgnoreCase("entero")) {
             return "int";
-        } else if (type.equalsIgnoreCase("real")){
+        } else if (type.equalsIgnoreCase("real")) {
             return "double";
         } else {
             return "boolean";
@@ -287,11 +291,9 @@ public class Utils {
 
         boolean success = task.call();
 
-        System.out.println("Estado Compilacion: " + (success?"Correcto":"Incorrecto revisar algoritmo"));
+        System.out.println("Estado Compilacion: " + (success ? "Correcto" : "Incorrecto revisar algoritmo"));
 
-        if (DEBUG_MODE){
-            System.out.println(writer.toString());
-        }
+        MyLogger.log(writer.toString());
 
         if (success) {
             try {
@@ -311,21 +313,25 @@ public class Utils {
         }
     }
 
-    public static void tryToExtractVariables(String everything, Writer writer) throws IOException {
-        String ambiente = everything.substring(getPositionOf(AMBIENTE, everything) + AMBIENTE.length(), getPositionOf(ALGORITMO, everything));
-        ambiente = ambiente.trim();
-        String[] variables = ambiente.split(";");
+    public static void tryToExtractVariables(String everything, Writer writer) throws IOException, AlgorithmException {
+        try{
+            String ambiente = everything.substring(getPositionOf(AMBIENTE, everything) + AMBIENTE.length(), getPositionOf(ALGORITMO, everything));
+            ambiente = ambiente.trim();
+            String[] variables = ambiente.split("\n");
 
-        writer.write(" static Scanner sc = new Scanner(System.in); \n");
+            writer.write(" static Scanner sc = new Scanner(System.in); \n");
 
-        for (int i = 0; i < variables.length; i++) {
-            String[] variable = variables[i].split(":");
-            String name = variable[0].trim();
-            String dataType = Utils.getType(variable[1].trim());
+            for (int i = 0; i < variables.length; i++) {
+                String[] variable = variables[i].split(":");
+                String name = variable[0].trim();
+                String dataType = Utils.getType(variable[1].trim());
 
-            theVariables.put(name, dataType);
+                theVariables.put(name, dataType);
 
-            writer.write(" static " + dataType + SPACE + name + END_LINE + NEW_LINE);
+                writer.write(" static " + dataType + SPACE + name + END_LINE + NEW_LINE);
+            }
+        } catch (IndexOutOfBoundsException e){
+            throw new AlgorithmException("Ambiente no encontrado");
         }
     }
 
@@ -347,80 +353,171 @@ public class Utils {
         writer.write("//ambiente \n \n");
     }
 
-    public static void tryToExtractAction(String everything, Writer writer) throws IOException {
-        String algoritmo = everything.substring(getPositionOf(ALGORITMO, everything) + ALGORITMO.length(), getPositionOf(FIN_ALGORITMO, everything));
-        String[] actions = algoritmo.replaceAll(";", "").split("\n");
+    public static void tryToExtractAction(String everything, Writer writer) throws IOException, AlgorithmException {
+        try {
+            String algoritmo = everything.substring(getPositionOf(ALGORITMO, everything) + ALGORITMO.length(), getPositionOf(FIN_ALGORITMO, everything));
+            String[] actions = algoritmo.replaceAll(";", "").split("\n");
+            int i = 0;
+           try {
+               writer.write("//algoritmo \n");
+               writer.write("public static void main(String[] args){ \n");
 
-        writer.write("//algoritmo \n");
-        writer.write("public static void main(String[] args){ \n");
 
-        int i = 0;
-        ArrayList<String> pilaAcciones = new ArrayList<String>();
-        while (i < actions.length) {
-            String line = actions[i].trim();
-            line = line.replace(" mod ", " % ");
-            if (!line.startsWith("//")){
-                if (!detectAction(line, writer)) {
-                    specialAction(line, writer, pilaAcciones);
-                }
-            }
-            i++;
+               Stack<String> pilaAcciones = new Stack<>();
+               while (i < actions.length) {
+                   String line = actions[i].trim();
+                   line = line.replace(" mod ", " % ");
+                   //MyLogger.log(i + " " + line);
+                   if (!line.startsWith("//") && line.length() > 0) {
+                       if (!detectAction(line, writer, pilaAcciones, false) && !specialAction(line, writer, pilaAcciones)) {
+                           MyLogger.log("Error compilando!");
+                           System.out.println("Error en linea "+i+": "+line);
+                           break;
+                       }
+                   } else {
+                       MyLogger.log("Comentario encontrado");
+                   }
+                   i++;
+               }
+
+               if (pilaAcciones.size() > 0){
+                   MyLogger.log("Error compilando!");
+                   System.out.println("Error en algoritmo no se cerro "+pilaAcciones);
+               }
+
+               writer.write("}\n");
+           } catch (Exception e){
+               throw new AlgorithmException("Error encontrado en "+actions[i]+" \n Detalles:"+e.getMessage());
+           }
+        } catch (IndexOutOfBoundsException e){
+            throw new AlgorithmException("Bloque algoritmo mal cerrado/mal abierto ");
         }
-
-        writer.write("}\n");
 
 
     }
 
-    public static void specialAction(String line, Writer writer, ArrayList<String> pilaAcciones) throws IOException {
-        if (line.contains(SI) && line.contains(ENTONCES) && !line.contains(SINO)) {
-            String logic = line.substring(getPositionOf(SI, line) + SI.length(), getPositionOf(ENTONCES, line));
+    public static boolean specialAction(String line, Writer writer, Stack<String> pilaAcciones) throws IOException, AlgorithmException {
+        if (line.contains(Constants.SI) && line.contains(ENTONCES) && !line.contains(SINO)) {
+            String logic = line.substring(getPositionOf(Constants.SI, line) + Constants.SI.length(), getPositionOf(ENTONCES, line));
             logic = logic.replaceAll(" = ", " == ").replaceAll(" <> ", " != ");
             logic = replaceWithEquals(logic);
             writer.write("if (" + logic + "){\n");
+            pilaAcciones.push(line);
+            return true;
         } else if (line.contains(FIN)) {
             writer.write("}\n");
-        }else if (line.contains(REPETIR)) {
+            String linetoUpperCase =line.toUpperCase();
+            //MyLogger.log(linetoUpperCase);
+            if (linetoUpperCase.contains(SI)){
+                findLastAction(pilaAcciones, SI);
+            } else if (linetoUpperCase.contains("MIENTRAS")){
+                findLastAction(pilaAcciones, MIENTRAS);
+            } else if (linetoUpperCase.contains("PARA")){
+                findLastAction(pilaAcciones, PARA);
+            } else if (linetoUpperCase.contains("SEGUN")){
+                findLastAction(pilaAcciones, SEGUN);
+            }
+            return true;
+        } else if (line.contains(REPETIR)) {
             writer.write("do { \n");
-        }  else if (line.trim().equalsIgnoreCase(SINO)) {
+            pilaAcciones.push(line);
+            return true;
+        } else if (line.trim().equalsIgnoreCase(SINO)) {
             writer.write("} else { \n");
+            return true;
         } else if (line.contains(SINO_SI)) {
             String logic = line.substring(getPositionOf(SINO_SI, line) + SINO_SI.length(), getPositionOf(ENTONCES, line));
             logic = logic.replaceAll(" = ", " == ").replaceAll(" <> ", " != ");
             logic = replaceWithEquals(logic);
             writer.write("} else if (" + logic + "){\n");
-        } else if (line.contains(HASTA) && line.contains(")")){
+            return true;
+        } else if (line.contains(HASTA) && line.contains(")")) {
             String logic = line.substring(getPositionOf(HASTA, line) + HASTA.length(), getPositionOf(")", line));
             logic = logic.replaceAll(" = ", " == ").replaceAll(" <> ", " != ");
             logic = replaceWithEquals(logic);
             writer.write(" } while (" + logic + ");\n");
-        } else if (line.contains(MIENTRAS) && line.contains(HACER)){
+            findLastAction(pilaAcciones, REPETIR);
+            return true;
+        } else if (line.contains(MIENTRAS) && line.contains(HACER)) {
             String logic = line.substring(getPositionOf(MIENTRAS, line) + MIENTRAS.length(), getPositionOf(HACER, line));
             logic = logic.replaceAll(" = ", " == ").replaceAll(" <> ", " != ");
             logic = replaceWithEquals(logic);
             writer.write("while (" + logic + "){\n");
-        } else if (line.contains(PARA) && line.contains(")hacer")){
+            pilaAcciones.push(line);
+            return true;
+        } else if (line.contains(PARA) && line.contains(")hacer")) {
             String logic = line.substring(getPositionOf(HASTA, line) + HASTA.length(), getPositionOf(")", line));
             String[] actions = logic.split(",");
-            String letter = actions[0].split("hasta")[0].split("=")[0].trim();
-            String init = actions[0].split("hasta")[0].split("=")[1].trim();
+            String letter = actions[0].split("hasta")[0].split(":=")[0].trim();
+            String init = actions[0].split("hasta")[0].split(":=")[1].trim();
             String tope = actions[0].split("hasta")[1].trim();
-            String aumento = actions[1].substring(actions[1].indexOf(letter)+letter.length()).trim();
-            if (aumento.contains("=")){
-                aumento = aumento.replace(":=","=");
+            String aumento = actions[1].substring(actions[1].indexOf(letter) + letter.length()).trim();
+            if (aumento.contains("=")) {
+                aumento = aumento.replace(":=", "=");
             }
-            writer.write("for("+letter+"="+init+";"+letter+" <= "+tope+";"+letter+aumento+") { \n");
+            writer.write("for(" + letter + "=" + init + ";" + letter + " <= " + tope + ";" + letter + aumento + ") { \n");
+            pilaAcciones.push(line);
+            return true;
+        } else if (line.contains(SEGUN) && line.contains(HACER)){
+            String variable = line.substring(getPositionOf(SEGUN, line) + SEGUN.length(), getPositionOf(HACER, line));
+            if (theVariables.get(variable.trim()) == null){
+                throw  new AlgorithmException("Variable no existe para hacer el segun en el ambiente");
+            } else {
+                SEGUN_VARIABLE = variable;
+                SEGUN_COUNTER = 1;
+            }
+            pilaAcciones.push(line);
+            return true;
+        } else if (pilaAcciones.peek().contains(SEGUN)){
+            String[] actions = line.split(":");
+            if (actions.length > 1){
+                String logic = actions[0].trim();
+                String action = actions[1].trim();
+                if (logic.contains("=")&&!(logic.contains("<")||logic.contains(">"))){
+                    logic = logic.replaceAll("=", " == ");
+                }
+                logic.replaceAll("<>", " != ");
+                if (!logic.equalsIgnoreCase("otros")){
+                    writer.write(SEGUN_COUNTER > 1?" else ":"");
+                    writer.write("if ("+SEGUN_VARIABLE);
+                    writer.write(logic+"){ \n");
+                    detectAction(action, writer, pilaAcciones, true);
+                    writer.write("}");
+                    SEGUN_COUNTER++;
+                } else {
+                    writer.write(SEGUN_COUNTER > 1?" else { \n":"");
+                    detectAction(action, writer, pilaAcciones, true);
+                }
+            } else {
+                MyLogger.log("Pasare por aqui??? ");
+                detectAction(line,writer, pilaAcciones, true);
+            }
+            return true;
         }
+        return false;
+    }
+
+    private static void findLastAction(Stack<String> pilaAcciones, String method) {
+        //MyLogger.log("Entrandoooo "+pilaAcciones+" --- "+method);
+        for (int i = pilaAcciones.size()-1; i > -1; i--) {
+            String action = pilaAcciones.get(i).toUpperCase();
+            //MyLogger.log("Encontrado! pilaAcciones.get(i).toUpperCase()="+action+" "+action.contains(method.toUpperCase()));
+            if (action.contains(method.toUpperCase())){
+                pilaAcciones.remove(i);
+                break;
+            }
+        }
+        //MyLogger.log(pilaAcciones+" --- "+method);
     }
 
     public static String replaceWithEquals(String logic) {
         StringBuilder builder = new StringBuilder();
-        if (logic.contains(" ^ ")) {
-            String[] actions = logic.split(Pattern.quote(" ^ "));
+        if (logic.contains(" y ")) {
+            String[] actions = logic.split((" y "));
             for (int i = 0; i < actions.length; i++) {
                 String subline = actions[i];
-                if (subline.contains(" | ")) {
-                    String[] ires = subline.split(Pattern.quote(" | "));
+                if (subline.contains(" o ")) {
+                    String[] ires = subline.split(Pattern.quote(" o "));
                     for (int j = 0; j < ires.length; j++) {
                         String[] line = ires[j].split(" == ");
                         if (line.length > 1 && theVariables.get(line[0]) != null && theVariables.get(line[0]).trim().equalsIgnoreCase("String")) {
@@ -428,7 +525,7 @@ public class Utils {
                         } else {
                             builder.append(ires[j]);
                         }
-                        if (j != ires.length-1){
+                        if (j != ires.length - 1) {
                             builder.append(" || ");
                         }
                     }
@@ -440,7 +537,7 @@ public class Utils {
                         builder.append(subline);
                     }
                 }
-                if (i != actions.length-1){
+                if (i != actions.length - 1) {
                     builder.append(" && ");
                 }
             }
@@ -449,12 +546,12 @@ public class Utils {
             for (int i = 0; i < actions.length; i++) {
                 String subline = actions[i];
                 String[] line = subline.split(" == ");
-                if (line.length > 1 && theVariables.get(line[0]) != null &&  theVariables.get(line[0]).trim().equalsIgnoreCase("String")) {
+                if (line.length > 1 && theVariables.get(line[0]) != null && theVariables.get(line[0]).trim().equalsIgnoreCase("String")) {
                     builder.append(line[0].trim() + ".equalsIgnoreCase(" + line[1].trim() + ")");
                 } else {
                     builder.append(subline);
                 }
-                if (i != actions.length-1){
+                if (i != actions.length - 1) {
                     builder.append(" || ");
                 }
             }
@@ -471,38 +568,44 @@ public class Utils {
         return builder.toString();
     }
 
-    public static boolean detectAction(String line, Writer writer) throws IOException {
-        if (line.contains(ESCRIBIR) || line.contains(ESCRIBIR.toLowerCase())) {
-            String titAMostrar = line.substring(getPositionOf(ESCRIBIR, line) + ESCRIBIR.length(), getPositionOf(")", line));
-            if (titAMostrar.contains(",\"")) {
-                String[] concat = titAMostrar.split(",");
-                writer.write("System.out.println(");
-                for (int i = 0; i < concat.length; i++) {
-                    writer.write(concat[i]);
-                    if (i != concat.length - 1) {
-                        writer.write("+");
+    public static boolean detectAction(String line, Writer writer, Stack<String> pilaAcciones, boolean forceEnter) throws IOException, AlgorithmException {
+        if (pilaAcciones.size() == 0 || pilaAcciones.size() > 0 && (!pilaAcciones.peek().contains(SEGUN)) || forceEnter){
+            if (line.contains(ESCRIBIR) || line.contains(ESCRIBIR.toLowerCase())) {
+                String titAMostrar = line.substring(getPositionOf(ESCRIBIR, line) + ESCRIBIR.length(), getPositionOf(")", line));
+                if (titAMostrar.contains(",\"") || titAMostrar.contains("\",")) {
+                    String[] concat = titAMostrar.split(",");
+                    writer.write("System.out.println(");
+                    for (int i = 0; i < concat.length; i++) {
+                        writer.write(concat[i]);
+                        if (i != concat.length - 1) {
+                            writer.write("+");
+                        }
                     }
+                    writer.write("); \n");
+                } else {
+                    writer.write("System.out.println(" + titAMostrar + "); \n");
                 }
-                writer.write("); \n");
-            } else {
-                writer.write("System.out.println(" + titAMostrar + "); \n");
-            }
-            return true;
-        } else if (line.contains(LEER) || line.contains(LEER.toLowerCase())) {
-            String titALeer = line.substring(getPositionOf(LEER, line) + LEER.length(), getPositionOf(")", line));
-            if (titALeer.contains(",")) {
-                String[] vars = titALeer.split(",");
-                for (int i = 0; i < vars.length; i++) {
-                    writer.write(vars[i] + " = sc.next" + getTypeForInput(vars[i].trim()) + "();\n");
+                return true;
+            } else if (line.contains(LEER) || line.contains(LEER.toLowerCase())) {
+                String titALeer = line.substring(getPositionOf(LEER, line) + LEER.length(), getPositionOf(")", line));
+                if (titALeer.contains(",")) {
+                    String[] vars = titALeer.split(",");
+                    for (int i = 0; i < vars.length; i++) {
+                        writer.write(vars[i] + " = sc.next" + getTypeForInput(vars[i].trim()) + "();\n");
+                    }
+                } else {
+                    writer.write(titALeer + " = sc.next" + getTypeForInput(titALeer) + "();\n");
                 }
-            } else {
-                writer.write(titALeer + " = sc.next" + getTypeForInput(titALeer) + "();\n");
+                return true;
+            } else if (line.contains(":=") && !line.contains(PARA)) {
+                String[] assigns = line.split(":=");
+                if (theVariables.get(assigns[0].trim()) != null){
+                    writer.write(assigns[0].trim() + SPACE + "=" + SPACE + assigns[1].trim() + ";\n");
+                } else {
+                    throw  new AlgorithmException("Variable no encontrada en ambiente "+assigns[0].trim());
+                }
+                return true;
             }
-            return true;
-        } else if (line.contains(":=") && !line.contains(PARA)) {
-            String[] assigns = line.split(":=");
-            writer.write(assigns[0].trim() + SPACE + "=" + SPACE + assigns[1].trim() + ";\n");
-            return true;
         }
         return false;
     }
@@ -529,14 +632,14 @@ public class Utils {
             String everything = IOUtils.toString(inputStream);
             //public class
             addHeader(writer);
-            //
+            // getting the variables
             tryToExtractVariables(everything, writer);
             //main
             tryToExtractAction(everything, writer);
             //final {
             addFooter(writer);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         } finally {
             inputStream.close();
             try {
@@ -548,7 +651,7 @@ public class Utils {
 
     public static int findWord(String[] args, String word) {
         for (int i = 0; i < args.length; i++) {
-            if (args[i].equalsIgnoreCase(word)){
+            if (args[i].equalsIgnoreCase(word)) {
                 return i;
             }
         }

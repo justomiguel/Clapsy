@@ -99,7 +99,7 @@ Fin_Accion;
 * Pueden usar el condicional simple usando ^ o | para concatenar expresiones mas complejas
 
 ```
-Si(apellido = "Vargas" ^ nombre == "Migue")entonces;
+Si(apellido = "Vargas" ^ nombre = "Migue")entonces;
     Escribir("Grande ",apellido," ",nombre);
 Fin_si
 ```
@@ -107,14 +107,14 @@ Fin_si
 * O bien usar el condicional alternativo
 
 ```
-Si(apellido = "Vargas" ^ nombre == "Migue")entonces;
+Si(apellido = "Vargas" ^ nombre = "Migue")entonces;
     Escribir("Grande ",apellido," ",nombre);
 sino
     Escribir("No esta bien!")
 Fin_si
 ```
 
-* O bien el multiple
+* O bien el anidado
 
 ```
 Si(apellido = "Vargas" ^ nombre = "Migue")entonces;
@@ -126,15 +126,30 @@ sino
 Fin_si
 ```
 
+* O bien el multiple
+
+```
+        Segun(suma)hacer
+
+            <50: Escribir("La suma es menor 50.")
+            =50: Escribir("La suma es igual a 50.")
+            <=100: Escribir("La suma es mayor a 50 y menor o igual a 100.")
+            <=200: Escribir("La suma es mayor a 100 y menor o igual a 200.")
+            Otros: Escribir("La suma es mayor a 200.")
+
+        Fin_segun
+```
+
+
 **Usando setencias repetitivas** 
 
 * Manejada por contador o el para
 
 ```
-Para(i=0 hasta 50, i:=i+2)hacer
+Para(i:=0 hasta 50, i:=i+2)hacer
    numero := numero +1;
    Escribir(numero)
-   Si(numero mod 6 == 0)entonces
+   Si(numero mod 6 = 0)entonces
      Escribir("****")
    Fin_si
 Fin_para
@@ -145,7 +160,7 @@ Fin_para
 ```
 Repetir
    numero := numero +1;
-   Si(numero mod 2 == 0)entonces
+   Si(numero mod 2 = 0)entonces
       Escribir(numero)
    Fin_si
 Hasta(numero < 100);
@@ -157,7 +172,7 @@ Hasta(numero < 100);
 Mientras(i < 100)hacer
   i := i +1;
   Escribir(i)
-  Si(i mod 6 == 0)entonces
+  Si(i mod 6 = 0)entonces
     Escribir("****")
   Fin_si
 Fin_mientras

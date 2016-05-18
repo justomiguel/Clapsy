@@ -1,0 +1,26 @@
+Accion suma es
+
+    Ambiente
+
+        A: entero
+        B: entero
+        suma: entero
+
+    Algoritmo
+
+        Escribir("Ingrese dos números:")
+        Leer(A,B)
+        suma:=A+B
+        Segun(suma)hacer
+
+            <50: Escribir("La suma es menor 50.")
+            =50: Escribir("La suma es igual a 50.")
+            <=100: Escribir("La suma es mayor a 50 y menor o igual a 100.")
+            <=200: Escribir("La suma es mayor a 100 y menor o igual a 200.")
+            Otros: Escribir("La suma es mayor a 200.")
+
+        Fin_segun
+
+    Fin_Algoritmo
+
+Fin_accion
