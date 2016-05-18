@@ -96,10 +96,10 @@ Fin_Accion;
 
 **Usando setencias condicionales** 
 
-* Pueden usar el condicional simple usando ^ o | para concatenar expresiones mas complejas
+* Pueden usar el condicional simple usando y/o para concatenar expresiones mas complejas
 
 ```
-Si(apellido = "Vargas" ^ nombre = "Migue")entonces;
+Si(apellido = "Vargas" y nombre = "Migue")entonces;
     Escribir("Grande ",apellido," ",nombre);
 Fin_si
 ```
@@ -107,7 +107,7 @@ Fin_si
 * O bien usar el condicional alternativo
 
 ```
-Si(apellido = "Vargas" ^ nombre = "Migue")entonces;
+Si(apellido = "Vargas" y nombre = "Migue")entonces;
     Escribir("Grande ",apellido," ",nombre);
 sino
     Escribir("No esta bien!")
@@ -117,7 +117,7 @@ Fin_si
 * O bien el anidado
 
 ```
-Si(apellido = "Vargas" ^ nombre = "Migue")entonces;
+Si(apellido = "Vargas" y nombre = "Migue")entonces;
      Escribir("Grande ",apellido," ",nombre);
 sino si(apellido = "Bedoya")entonces
      Escribir("Lobo: ",apellido," ",nombre);
