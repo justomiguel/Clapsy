@@ -15,8 +15,13 @@ public class Main {
         } else {
             int search = Utils.findWord(args, "-DebugMode");
             boolean DEBUG_MODE =  search != -1?true:false;
+            args = Utils.removeWord(args, "-DebugMode");
             try{
-                Utils.analizeAndExec(args[0],DEBUG_MODE);
+                String dirSecuenciaArchivo = null;
+                if (args.length > 1 ){
+                    dirSecuenciaArchivo = args[1];
+                }
+                Utils.analizeAndExec(args[0],dirSecuenciaArchivo, DEBUG_MODE);
             } catch (Exception e){
                 System.out.println("Ha sucedido un error utilizando la libreria. Verifica que el algoritmo este correcto.");
                 System.out.println("Detalles del Error: "+e.getMessage());

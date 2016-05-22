@@ -1,0 +1,40 @@
+Accion suma es
+
+    Ambiente
+
+        s: Secuencia de caracteres;
+        v: caracter;
+
+    Algoritmo
+
+        Arrancar(s);
+        Avanzar(s,v);
+        Mientras(v <> "*")hacer
+            Mientras(v = " ")hacer
+                Avanzar(s,v);
+            Fin_mientras
+            Si(v = "A")entonces
+                // Se le agrega el AVZ para que pueda
+                Avanzar(s,v);
+                // preguntar si la siguiente letra es "L"
+                Si(v = "L")entonces
+                    Avanzar(s,v);            
+                    Si(v = "G")entonces            
+                        Escribir("Alg");
+                        Avanzar(s,v);            
+                        Mientras(( v <> " ") y ( v <> "*"))hacer
+                            Escribir(v);
+                            Avanzar(s,v);
+                        Fin_MIENTRAS;
+                    Fin_SI;
+                Fin_SI;
+            Fin_SI;
+            Mientras((v <> " ") y (v <> "*"))hacer
+                Avanzar(s,v);
+            Fin_mientras
+        Fin_mientras
+        Cerrar(s);
+
+    Fin_Algoritmo
+
+Fin_accion

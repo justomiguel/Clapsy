@@ -35,11 +35,14 @@ public class Utils {
 
     public static final String SI = "SI";
     public static final String SEGUN = "Segun(";
+    public static final String ARRANCAR = "Arrancar(";
+    public static final String AVANZAR = "Avanzar(";
+    public static final String CERRAR = "Cerrar(";
     private static  int SEGUN_COUNTER = 0;
     public static boolean DEBUG_MODE = false;
     public static HashMap<String, String> theVariables = new HashMap<String, String>();
     private static String SEGUN_VARIABLE;
-
+    private static  int CHARACTER_SEQ_COUNTER = -1;
 
     public static <T> T tranformAccordingType(Class<T> type, String string) {
 
@@ -273,6 +276,8 @@ public class Utils {
             return "String";
         } else if (type.equalsIgnoreCase("entero")) {
             return "int";
+        } else if (type.toLowerCase().contains("Secuencia de caracter".toLowerCase())) {
+            return "String[]";
         } else if (type.equalsIgnoreCase("real")) {
             return "double";
         } else {
@@ -313,9 +318,9 @@ public class Utils {
         }
     }
 
-    public static void tryToExtractVariables(String everything, Writer writer) throws IOException, AlgorithmException {
+    public static void tryToExtractVariables(String everything, String secuenciaArchivoContents, Writer writer) throws IOException, AlgorithmException {
         try{
-            String ambiente = everything.substring(getPositionOf(AMBIENTE, everything) + AMBIENTE.length(), getPositionOf(ALGORITMO, everything));
+            String ambiente = everything.substring(getPositionOf(AMBIENTE, everything) + AMBIENTE.length(), getPositionOf(ALGORITMO, everything)).replaceAll(";", "");
             ambiente = ambiente.trim();
             String[] variables = ambiente.split("\n");
 
@@ -328,7 +333,20 @@ public class Utils {
 
                 theVariables.put(name, dataType);
 
-                writer.write(" static " + dataType + SPACE + name + END_LINE + NEW_LINE);
+                if (dataType.equals("String[]")){
+                    if (secuenciaArchivoContents == null){
+                        throw new AlgorithmException("No se especifico entrada de secuencia");
+                    } else {
+                        writer.write(" static " + dataType + SPACE + name + " = new String[]{");
+                        for (int j = 0; j < secuenciaArchivoContents.length(); j++) {
+                            writer.write("\""+String.valueOf(secuenciaArchivoContents.charAt(j))+"\",");
+                        }
+                        writer.write("\"*\"}"+ END_LINE + NEW_LINE);
+                        writer.write(" static int CHARACTER_SEQ_COUNTER = 0"+ END_LINE + NEW_LINE);
+                    }
+                } else {
+                    writer.write(" static " + dataType + SPACE + name + END_LINE + NEW_LINE);
+                }
             }
         } catch (IndexOutOfBoundsException e){
             throw new AlgorithmException("Ambiente no encontrado");
@@ -597,6 +615,38 @@ public class Utils {
                     writer.write(titALeer + " = sc.next" + getTypeForInput(titALeer) + "();\n");
                 }
                 return true;
+            }  else if (line.contains(ARRANCAR) || line.toLowerCase().contains(ARRANCAR.toLowerCase())) {
+                String nombreSecuencia = line.substring(getPositionOf(ARRANCAR, line) + ARRANCAR.length(), getPositionOf(")", line));
+                if (theVariables.get(nombreSecuencia) == null) {
+                    throw new AlgorithmException("No es una secuencia validad para arrancar");
+                } else {
+                    CHARACTER_SEQ_COUNTER = 0;
+                    pilaAcciones.push(nombreSecuencia);
+                }
+                return true;
+            } else if (line.contains(CERRAR) || line.toLowerCase().contains(CERRAR.toLowerCase())) {
+                String nombreSecuencia = line.substring(getPositionOf(CERRAR, line) + CERRAR.length(), getPositionOf(")", line));
+                if (theVariables.get(nombreSecuencia) == null) {
+                    throw new AlgorithmException("No es una secuencia validad para arrancar");
+                } else {
+                    CHARACTER_SEQ_COUNTER = -1;
+                    pilaAcciones.remove(nombreSecuencia);
+                }
+                return true;
+            } else if (line.contains(AVANZAR) || line.toLowerCase().contains(AVANZAR.toLowerCase())) {
+                String secuenciaAndCharacter = line.substring(getPositionOf(AVANZAR, line) + AVANZAR.length(), getPositionOf(")", line));
+                String[] vars = secuenciaAndCharacter.split(",");
+                if (theVariables.get(vars[1]) == null || theVariables.get(vars[0]) == null) {
+                    throw new AlgorithmException("Avanzar mal definido en "+line);
+                } else if (CHARACTER_SEQ_COUNTER == -1) {
+                    throw new AlgorithmException("No se puede avanzar sin antes arrancar la secuencia "+line);
+                } else {
+                    String character = vars[1];
+                    String seq = vars[0];
+                    writer.write(character+"="+seq+"[CHARACTER_SEQ_COUNTER]; \n");
+                    writer.write("CHARACTER_SEQ_COUNTER++; \n");
+                }
+                return true;
             } else if (line.contains(":=") && !line.contains(PARA)) {
                 String[] assigns = line.split(":=");
                 if (theVariables.get(assigns[0].trim()) != null){
@@ -621,19 +671,27 @@ public class Utils {
         return sb.toString();
     }
 
-    public static void analizeAndExec(String file, boolean debugMode) throws IOException {
+    public static void analizeAndExec(String algoritmo, String secuenciaArchivo, boolean debugMode) throws IOException {
         FileInputStream inputStream = null;
         StringWriter writer = null;
         try {
             DEBUG_MODE = debugMode;
-            inputStream = new FileInputStream(file);
+            inputStream = new FileInputStream(algoritmo);
             writer = new StringWriter();
             PrintWriter out = new PrintWriter(writer);
             String everything = IOUtils.toString(inputStream);
+
+            File secArchivo = new File(secuenciaArchivo);
+            String secuenciaArchivoContents = null;
+            if (secArchivo.exists()){
+                secuenciaArchivoContents = IOUtils.toString(new FileInputStream(secuenciaArchivo));
+            }
+
             //public class
             addHeader(writer);
             // getting the variables
-            tryToExtractVariables(everything, writer);
+            tryToExtractVariables(everything, secuenciaArchivoContents, writer);
+            //load file or character sequence
             //main
             tryToExtractAction(everything, writer);
             //final {
@@ -649,6 +707,10 @@ public class Utils {
         compilationAndExec(writer);
     }
 
+    private static void tryToInjectFileSecContents(String secuenciaArchivoContents, StringWriter writer) {
+
+    }
+
     public static int findWord(String[] args, String word) {
         for (int i = 0; i < args.length; i++) {
             if (args[i].equalsIgnoreCase(word)) {
@@ -656,5 +718,28 @@ public class Utils {
             }
         }
         return -1;
+    }
+
+    public static int countWordOcurrences(String[] args, String word) {
+        int cont = 0;
+        for (int i = 0; i < args.length; i++) {
+            if (args[i].equalsIgnoreCase(word)) {
+                cont++;
+            }
+        }
+        return cont;
+    }
+
+    public static String[] removeWord(String[] args, String word) {
+        int cantOcurrencias = countWordOcurrences(args, word);
+        String[] nuevoArray = new String[args.length - cantOcurrencias];
+        int j = 0;
+        for (int i = 0; i < args.length; i++) {
+            if (!args[i].equalsIgnoreCase(word)) {
+                nuevoArray[j] = args[i];
+                j++;
+            }
+        }
+        return nuevoArray;
     }
 }

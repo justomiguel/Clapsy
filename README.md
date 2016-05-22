@@ -9,7 +9,7 @@ Clapsy es una libreria espcialmente construida para reproducir los Algoritmos de
 2. Para ejecutarlo deberan abrir una terminal (linux) o el famoso simbolo del sistema (Windows) y con eso desplazarce hasta donde descargaron el jar y ejecutar lo siguiente:
 
 ```
-$ java -jar Clapsy-1.0.jar NOMBRE_TU_ALGORITMO.algoritmo
+$ java -jar Clapsy-1.0.jar NOMBRE_TU_ALGORITMO.algoritmo 
 ```
 
 Si bien no es una convencion pueden poner a los files que usan para el algoritmo como .algoritmo. La libreria tomara el archivo y lo tratara de ejecutar. Traten de seguir las convenciones de escritura que son bien similares o iguales a las de la catedra, explicada mas abajo.
@@ -19,6 +19,13 @@ Si bien no es una convencion pueden poner a los files que usan para el algoritmo
  $ java -jar Clapsy-1.0.jar algoritmos/Prueba.algoritmo
 ```
 
+Si estan por trabajar con secuencias, ademas de pasarle el algoritmo para que lo compile deben enviar la secuencia con la van a trabajar de la siguiente forma
+
+```
+ $ java -jar Clapsy-1.0.jar algoritmos/Secuencias.algoritmo secuencias/palabrasI.sec
+```
+
+Donde *secuencias/palabrasI.sec* es un archivo que contiene una secuencia de caracteres.
 
 ## Como Usarla //For Pro Users
 
@@ -176,6 +183,48 @@ Mientras(i < 100)hacer
     Escribir("****")
   Fin_si
 Fin_mientras
+```
+
+
+**Trabajando con secuencias de caracteres** 
+
+* Al trabajar con secuencias debemos ademas al momento de ejecutar crear un archivo de la secuencia que se va a recorrer que contenga blancos y las palabras en el formato que se esperan. En este ejemplo se usa la secuencia que se encuentra en la carpeta secuencias/palabrasI.sec. Hacer un algoritmo que recorra una secuencia de caracteres y cuente las palabras que comiencen con la letra que se ingrese por teclado.
+
+```
+Accion suma es
+
+    Ambiente
+
+        s: Secuencia de caracteres;
+        v: caracter;
+        car: caracter;
+        CONT: entero;
+
+    Algoritmo
+
+        Escribir("Ingrese el caracter a buscar");
+        Leer(car);
+        Arrancar(s);
+        Avanzar(s,v);
+        CONT:=0;
+        Mientras(v <> "*")hacer
+            Mientras(v = " ")hacer
+                Avanzar(s,v);
+            Fin_mientras
+            Si(v = car)entonces
+                CONT:=CONT+1;
+            Fin_si
+            Mientras((v <> " ") y (v <> "*"))hacer
+                Avanzar(s,v);
+            Fin_mientras
+        Fin_mientras
+        Escribir("Hay ",CONT," palabras que comienzan con ",car,".");
+        Cerrar(s);
+
+    Fin_Algoritmo
+
+Fin_accion
+
 ```
 
 **Poniendonos pro!** 
