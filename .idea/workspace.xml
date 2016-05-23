@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bb7f9b7-e69f-408a-956f-356cb1de9caa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/algoritmos/ContarPalabrasAlg.algoritmo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/algoritmos/Secuencias.algoritmo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/secuencias/palabrasI.sec" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Prueba.class" afterPath="$PROJECT_DIR$/Prueba.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java" afterPath="$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/frre/practica/isi/algoritmos/genericos/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/frre/practica/isi/algoritmos/genericos/Main.java" />
     </list>
     <ignored path="libProg.iws" />
@@ -31,12 +26,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/practica/isi/algoritmos/genericos/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-              <folding />
+            <state vertical-scroll-proportion="0.6923077">
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <folding>
+                <element signature="e#328#1614#0" expanded="true" />
+                <element signature="e#1613#1614#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -45,72 +43,7 @@
         <entry file="file://$PROJECT_DIR$/algoritmos/Secuencias.algoritmo">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="16" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Prueba5.algoritmo" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/algoritmos/Prueba5.algoritmo">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="palabrasI.sec" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/secuencias/palabrasI.sec">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="42" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Prueba4.algoritmo" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/algoritmos/Prueba4.algoritmo">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="13" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-35.133335">
-              <caret line="629" column="23" selection-start-line="629" selection-start-column="23" selection-end-line="629" selection-end-column="23" />
-              <folding>
-                <element signature="e#1301#1317#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="190" column="280" selection-start-line="190" selection-start-column="280" selection-end-line="190" selection-end-column="280" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContarPalabrasAlg.algoritmo" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/algoritmos/ContarPalabrasAlg.algoritmo">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.559322">
-              <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -141,13 +74,13 @@
         <option value="$PROJECT_DIR$/algoritmos/Prueba3.algoritmo" />
         <option value="$PROJECT_DIR$/src/main/java/com/frre/library/AlgorithmException.java" />
         <option value="$PROJECT_DIR$/algoritmos/Prueba5.algoritmo" />
-        <option value="$PROJECT_DIR$/src/main/java/com/frre/practica/isi/algoritmos/genericos/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java" />
         <option value="$PROJECT_DIR$/Secuencias/palabrasI.sec" />
-        <option value="$PROJECT_DIR$/algoritmos/Secuencias.algoritmo" />
         <option value="$PROJECT_DIR$/algoritmos/ContarPalabrasAlg.algoritmo" />
         <option value="$PROJECT_DIR$/secuencias/palabrasI.sec" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/algoritmos/Secuencias.algoritmo" />
+        <option value="$PROJECT_DIR$/src/main/java/com/frre/practica/isi/algoritmos/genericos/Main.java" />
       </list>
     </option>
   </component>
@@ -378,7 +311,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="com.frre.practica.isi.algoritmos.genericos.Main" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="algoritmos/ContarPalabrasAlg.algoritmo secuencias/palabrasI.sec -DebugMode" />
+      <option name="PROGRAM_PARAMETERS" value="algoritmos/Secuencias.algoritmo secuencias/palabrasI.sec -DebugMode" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -727,12 +660,12 @@
       <workItem from="1463134743580" duration="1544000" />
       <workItem from="1463566480793" duration="6744000" />
       <workItem from="1463698560184" duration="22000" />
-      <workItem from="1463949833792" duration="9205000" />
+      <workItem from="1463949833792" duration="11272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17515000" />
+    <option name="totallyTimeSpent" value="19582000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1535" height="876" extended-state="6" />
@@ -744,7 +677,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23726708" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23726708" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24299674" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -838,7 +771,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="e#328#1614#0" expanded="true" />
+            <element signature="e#1613#1614#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -899,7 +835,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="e#328#1614#0" expanded="true" />
+            <element signature="e#1613#1614#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -960,7 +899,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#328#1614#0" expanded="true" />
+            <element signature="e#1613#1614#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -988,7 +930,7 @@
         <state vertical-scroll-proportion="0.23195876">
           <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1052,26 +994,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/practica/isi/algoritmos/genericos/Main.java">
+    <entry file="file://$PROJECT_DIR$/algoritmos/ContarPalabrasAlg.algoritmo">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+        <state vertical-scroll-proportion="-2.559322">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="190" column="280" selection-start-line="190" selection-start-column="280" selection-end-line="190" selection-end-column="280" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8990991">
+          <caret line="629" column="23" selection-start-line="629" selection-start-column="23" selection-end-line="629" selection-end-column="23" />
+          <folding>
+            <element signature="e#1301#1317#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/algoritmos/Prueba4.algoritmo">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.64102566">
           <caret line="25" column="13" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/algoritmos/ContarPalabrasAlg.algoritmo">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.559322">
-          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1086,7 +1041,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/algoritmos/Prueba5.algoritmo">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.23076923">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
@@ -1095,29 +1050,27 @@
     <entry file="file://$PROJECT_DIR$/algoritmos/Secuencias.algoritmo">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="16" />
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java">
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/concurrent/ExecutorService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.133335">
-          <caret line="629" column="23" selection-start-line="629" selection-start-column="23" selection-end-line="629" selection-end-column="23" />
-          <folding>
-            <element signature="e#1301#1317#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.71794873">
+          <caret line="209" column="12" selection-start-line="209" selection-start-column="12" selection-end-line="209" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="190" column="280" selection-start-line="190" selection-start-column="280" selection-end-line="190" selection-end-column="280" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/frre/practica/isi/algoritmos/genericos/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6923077">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <element signature="e#328#1614#0" expanded="true" />
+            <element signature="e#1613#1614#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
