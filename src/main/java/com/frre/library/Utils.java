@@ -734,12 +734,13 @@ public class Utils {
             PrintWriter out = new PrintWriter(writer);
             String everything = IOUtils.toString(inputStream);
 
-            File secArchivo = new File(secuenciaArchivo);
             String secuenciaArchivoContents = null;
-            if (secArchivo.exists()){
-                secuenciaArchivoContents = IOUtils.toString(new FileInputStream(secuenciaArchivo));
+            if (secuenciaArchivo!=null){
+                File secArchivo = new File(secuenciaArchivo);
+                if (secArchivo.exists()){
+                    secuenciaArchivoContents = IOUtils.toString(new FileInputStream(secuenciaArchivo));
+                }
             }
-
             //public class
             addHeader(writer);
             // getting the variables

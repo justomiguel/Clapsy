@@ -10,51 +10,61 @@ public class Cliente {
 
 
     @Clave
-    int legajo;
-    String nombre;
-    Fecha fecha;
-    double importe;
+    int nroCliente;
+    String nombreYApellido;
+    String domicilio;
+    String telefono;
+    int dni;
+
+    public int getNroCliente() {
+        return nroCliente;
+    }
+
+    public void setNroCliente(int nroCliente) {
+        this.nroCliente = nroCliente;
+    }
+
+    public String getNombreYApellido() {
+        return nombreYApellido;
+    }
+
+    public void setNombreYApellido(String nombreYApellido) {
+        this.nombreYApellido = nombreYApellido;
+    }
+
+    public String getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public int getDni() {
+        return dni;
+    }
 
     @Override
     public String toString() {
         return "Cliente{" +
-                "legajo=" + legajo +
-                ", nombre='" + nombre + '\'' +
-                ", fecha=" + fecha +
-                ", importe=" + importe +
+                "nroCliente=" + nroCliente +
+                ", nombreYApellido='" + nombreYApellido + '\'' +
+                ", domicilio='" + domicilio + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", dni=" + dni +
                 '}';
     }
 
-    public int getLegajo() {
-        return legajo;
-    }
-
-    public void setLegajo(int legajo) {
-        this.legajo = legajo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Fecha getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Fecha fecha) {
-        this.fecha = fecha;
-    }
-
-    public double getImporte() {
-        return importe;
-    }
-
-    public void setImporte(double importe) {
-        this.importe = importe;
+    public void setDni(int dni) {
+        this.dni = dni;
     }
 }
 

@@ -1,7 +1,8 @@
 package com.frre.practica.isi.algoritmos.archivos.crear;
 
-import com.frre.practica.isi.algoritmos.archivos.Usuario;
 import com.frre.library.Generador;
+import com.frre.practica.isi.algoritmos.archivos.Cliente;
+
 import static com.frre.library.archivos.FuncionesDeArchivos.*;
 
 import java.io.File;
@@ -16,22 +17,22 @@ public class Main {
     //archivo
     private static File archivo;
     //registro
-    private static Usuario nuevoUsuario;
+    private static Cliente cliente;
 
     //algoritmo
     public static void main(String[] args){
         //muestra de funciones con archivos
         //aqui creamos un archivo
-        archivo = abrir("usuarios", true);
+        archivo = abrir("clientes", true);
         //agregamos 500 registros;
         for (int i = 0; i < 500; i++) {
-            nuevoUsuario = new Usuario();
-            nuevoUsuario.setNombre(Generador.generarNombreAleatorio());
-            nuevoUsuario.setDni(Generador.generarDNIAleatorio());
-            nuevoUsuario.setDomicilio(Generador.generarLocalidadAleatorio());
-            nuevoUsuario.setEdad(Generador.generarEnteroAleatorio(15, 99));
-
-            grabar(archivo, nuevoUsuario);
+            cliente = new Cliente();
+            cliente.setNroCliente(i);
+            cliente.setDni(Generador.generarDNIAleatorio());
+            cliente.setDomicilio(Generador.generarLocalidadAleatorio());
+            cliente.setNombreYApellido(Generador.generarNombreAleatorio()+","+Generador.generarApellidoAleatorio());
+            cliente.setTelefono(Generador.generarEnteroAleatorio(23444324,314234342)+"");
+            grabar(archivo, cliente);
         }
 
         cerrar(archivo);

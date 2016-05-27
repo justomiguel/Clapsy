@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args){
         //muestra de funciones con archivos
-        File archivo = abrir("/home/jvargas/clientes");
+        File archivo = abrir("clientes");
         Cliente pp = new Cliente();
         pp = leer(archivo, pp);
         while (!FDA(archivo)){
