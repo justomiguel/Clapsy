@@ -38,11 +38,13 @@ public class Utils {
     public static final String ARRANCAR = "Arrancar(";
     public static final String AVANZAR = "Avanzar(";
     public static final String CERRAR = "Cerrar(";
+    public static final String CREAR = "Crear(";
     private static  int SEGUN_COUNTER = 0;
     public static boolean DEBUG_MODE = false;
     public static HashMap<String, String> theVariables = new HashMap<String, String>();
     private static String SEGUN_VARIABLE;
-    private static  int CHARACTER_SEQ_COUNTER = -1;
+    private static HashMap<String, Integer> sMapaSecuencias = new HashMap<>();
+    private static List<String> secuenciasPorCrear = new ArrayList<>();
 
     public static <T> T tranformAccordingType(Class<T> type, String string) {
 
@@ -342,7 +344,7 @@ public class Utils {
                             writer.write("\""+String.valueOf(secuenciaArchivoContents.charAt(j))+"\",");
                         }
                         writer.write("\"*\"}"+ END_LINE + NEW_LINE);
-                        writer.write(" static int CHARACTER_SEQ_COUNTER = 0"+ END_LINE + NEW_LINE);
+                        writer.write(" static int VENTANA_SECUENCIA"+name+" = 0"+ END_LINE + NEW_LINE);
                     }
                 } else {
                     writer.write(" static " + dataType + SPACE + name + END_LINE + NEW_LINE);
@@ -367,6 +369,10 @@ public class Utils {
 
     public static void addHeader(Writer writer) throws IOException {
         writer.write("import java.util.*; \n");
+        writer.write("import java.io.*; \n");
+        writer.write("import com.frre.library.*; \n");
+        writer.write("import static com.frre.library.archivos.FuncionesDeArchivos.*; \n");
+
         writer.write("public class Prueba { \n \n");
         writer.write("//ambiente \n \n");
     }
@@ -590,20 +596,33 @@ public class Utils {
         if (pilaAcciones.size() == 0 || pilaAcciones.size() > 0 && (!pilaAcciones.peek().contains(SEGUN)) || forceEnter){
             if (line.contains(ESCRIBIR) || line.contains(ESCRIBIR.toLowerCase())) {
                 String titAMostrar = line.substring(getPositionOf(ESCRIBIR, line) + ESCRIBIR.length(), getPositionOf(")", line));
-                if (titAMostrar.contains(",\"") || titAMostrar.contains("\",")) {
-                    String[] concat = titAMostrar.split(",");
-                    writer.write("System.out.println(");
-                    for (int i = 0; i < concat.length; i++) {
-                        writer.write(concat[i]);
-                        if (i != concat.length - 1) {
-                            writer.write("+");
-                        }
-                    }
-                    writer.write("); \n");
+                if (sMapaSecuencias.get(titAMostrar.split(",")[0])!=null){
+                    //tengo que escribir en la secuencia nueva
+                    String character = titAMostrar.split(",")[1];
+                    String seq = titAMostrar.split(",")[0];
+                    writer.write(seq+"[VENTANA_SECUENCIA"+seq+"]="+character+"; \n");
+                   // writer.write("System.out.print("+seq+"[VENTANA_SECUENCIA"+seq+"]); \n");
+                    //writer.write("System.out.print("+character+"); \n");
+                    writer.write("VENTANA_SECUENCIA"+seq+"++; \n");
+
+
+                    return true;
                 } else {
-                    writer.write("System.out.println(" + titAMostrar + "); \n");
+                    if (titAMostrar.contains(",\"") || titAMostrar.contains("\",")) {
+                        String[] concat = titAMostrar.split(",");
+                        writer.write("System.out.println(");
+                        for (int i = 0; i < concat.length; i++) {
+                            writer.write(concat[i]);
+                            if (i != concat.length - 1) {
+                                writer.write("+");
+                            }
+                        }
+                        writer.write("); \n");
+                    } else {
+                        writer.write("System.out.println(" + titAMostrar + "); \n");
+                    }
+                    return true;
                 }
-                return true;
             } else if (line.contains(LEER) || line.contains(LEER.toLowerCase())) {
                 String titALeer = line.substring(getPositionOf(LEER, line) + LEER.length(), getPositionOf(")", line));
                 if (titALeer.contains(",")) {
@@ -620,17 +639,51 @@ public class Utils {
                 if (theVariables.get(nombreSecuencia) == null) {
                     throw new AlgorithmException("No es una secuencia validad para arrancar");
                 } else {
-                    CHARACTER_SEQ_COUNTER = 0;
+                    sMapaSecuencias.put(nombreSecuencia, 1);
                     pilaAcciones.push(nombreSecuencia);
                 }
+                return true;
+            } else if (line.contains(CREAR) || line.toLowerCase().contains(CREAR.toLowerCase())) {
+                String nombreSecuencia = line.substring(getPositionOf(CREAR, line) + CREAR.length(), getPositionOf(")", line));
+                if (theVariables.get(nombreSecuencia) == null) {
+                    throw new AlgorithmException("No es una secuencia validad para crear");
+                } else {
+                    sMapaSecuencias.put(nombreSecuencia, 1);
+                    pilaAcciones.push(nombreSecuencia);
+                    secuenciasPorCrear.add(nombreSecuencia);
+                }
+                writer.write(" "+nombreSecuencia+" = new String[9000];\n");
                 return true;
             } else if (line.contains(CERRAR) || line.toLowerCase().contains(CERRAR.toLowerCase())) {
                 String nombreSecuencia = line.substring(getPositionOf(CERRAR, line) + CERRAR.length(), getPositionOf(")", line));
                 if (theVariables.get(nombreSecuencia) == null) {
                     throw new AlgorithmException("No es una secuencia validad para arrancar");
                 } else {
-                    CHARACTER_SEQ_COUNTER = -1;
+                    sMapaSecuencias.remove(nombreSecuencia);
                     pilaAcciones.remove(nombreSecuencia);
+                    if (secuenciasPorCrear.contains(nombreSecuencia)){
+                        secuenciasPorCrear.remove(nombreSecuencia);
+                        MyLogger.log(nombreSecuencia);
+
+                        writer.write("String output = \"\"; \n");
+                        writer.write("for (int i = 0; i < "+nombreSecuencia+".length; i++) { \n");
+                        writer.write(" if ("+nombreSecuencia+"[i] != null) { \n");
+                        writer.write(" output += "+nombreSecuencia+"[i]; \n } \n");
+                        writer.write("}\n");
+
+                        String contents = " try{ \n" +
+                                "String contents = output;\n" +
+                                "File file = new File(\""+nombreSecuencia+"\");\n" +
+                                "file.createNewFile();\n" +
+                                "FileWriter fw = new FileWriter(file);\n" +
+                                "BufferedWriter bw = new BufferedWriter(fw);\n" +
+                                "bw.write(contents);\n" +
+                                "bw.close();\n" +
+                                "fw.close();\n" +
+                                "} catch (Exception ex) {\n" +
+                                "}\n";
+                         writer.write(contents);
+                    }
                 }
                 return true;
             } else if (line.contains(AVANZAR) || line.toLowerCase().contains(AVANZAR.toLowerCase())) {
@@ -638,13 +691,13 @@ public class Utils {
                 String[] vars = secuenciaAndCharacter.split(",");
                 if (theVariables.get(vars[1]) == null || theVariables.get(vars[0]) == null) {
                     throw new AlgorithmException("Avanzar mal definido en "+line);
-                } else if (CHARACTER_SEQ_COUNTER == -1) {
+                } else if (sMapaSecuencias.get(vars[0].trim()) == null) {
                     throw new AlgorithmException("No se puede avanzar sin antes arrancar la secuencia "+line);
                 } else {
                     String character = vars[1];
                     String seq = vars[0];
-                    writer.write(character+"="+seq+"[CHARACTER_SEQ_COUNTER]; \n");
-                    writer.write("CHARACTER_SEQ_COUNTER++; \n");
+                    writer.write(character+"="+seq+"[VENTANA_SECUENCIA"+vars[0]+"]; \n");
+                    writer.write("VENTANA_SECUENCIA"+vars[0]+"++; \n");
                 }
                 return true;
             } else if (line.contains(":=") && !line.contains(PARA)) {

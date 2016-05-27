@@ -44,13 +44,13 @@ public class Main {
         final ExecutorService service = Executors.newCachedThreadPool();
         try {
             final Future<Object> f = service.submit(analizeSintaxAndExecute(args));
-            System.out.println(f.get(2, TimeUnit.SECONDS));
+            System.out.println(f.get(3, TimeUnit.MINUTES));
         } catch (final TimeoutException e) {
-            System.err.println("Revisa tu algoritmo, ya que probablemente entro en un bucle infinito debido a que ya paso mas de 2 minutos sin respuesta");
+            System.err.println("Revisa tu algoritmo, ya que probablemente entro en un bucle infinito debido a que ya paso mas de 3 minutos sin respuesta");
+            System.err.println("Cerrando programa por error de Timeout");
         } catch (final Exception e) {
             throw new RuntimeException(e);
         } finally {
-            System.err.println("Cerrando programa por error de Timeout");
             service.shutdownNow();
         }
     }

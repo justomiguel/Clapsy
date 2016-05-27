@@ -167,6 +167,7 @@ public class EscritorDeArchivos {
             bw.close();
             fw.close();
         } catch (Exception ex) {
+
             Utils.handleException(ex);
         }
     }

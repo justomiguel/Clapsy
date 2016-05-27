@@ -3,31 +3,41 @@ Accion suma es
     Ambiente
 
         s: Secuencia de caracteres;
+        s2: Secuencia de caracteres;
         v: caracter;
         car: caracter;
         CONT: entero;
-
+        band:boolean;
     Algoritmo
 
         Escribir("Ingrese el caracter a buscar");
         Leer(car);
         Arrancar(s);
+        Crear(s2);
         Avanzar(s,v);
         CONT:=0;
+        band:= false;
         Mientras(v <> "*")hacer
             Mientras(v = " ")hacer
                 Avanzar(s,v);
             Fin_mientras
             Si(v = car)entonces
                 CONT:=CONT+1;
+                band:=true;
             Fin_si
             Mientras((v <> " ") y (v <> "*"))hacer
+                Si(band)entonces
+                    Escribir(s2,v);
+                Fin_si
                 Avanzar(s,v);
             Fin_mientras
+            Si(band)entonces
+                Escribir(s2," ");
+            Fin_si
+            band:=false;
         Fin_mientras
         Escribir("Hay ",CONT," palabras que comienzan con ",car,".");
         Cerrar(s);
-
+        Cerrar(s2);
     Fin_Algoritmo
-
 Fin_accion
