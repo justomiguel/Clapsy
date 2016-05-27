@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Clapsy : Repositorio creado para reproducir los algoritmos en pseudocodigo en tiempo real a JAVA">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Clapsy</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/justomiguel/Clapsy">View on GitHub</a>
+
+          <h1 id="project_title">Clapsy</h1>
+          <h2 id="project_tagline">Repositorio creado para reproducir los algoritmos en pseudocodigo en tiempo real a JAVA</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/justomiguel/Clapsy/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/justomiguel/Clapsy/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>Clapsy es una libreria espcialmente construida para reproducir los Algoritmos de la carrera de ISI de la UTN FRRe y probarlos en tiempo real, traduciendolos a JAVA y ejecutandolos!. </p>
+
+<h2>
+<a id="como-usarla-normal-mode" class="anchor" href="#como-usarla-normal-mode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Como Usarla //Normal Mode</h2>
+
+<ol>
+<li>
+<p>Deberan descargar el archivo jar desde aqui...</p>
+
+<p><a href="https://github.com/justomiguel/Clapsy/raw/master/Clapsy-1.0.jar">Archivo JAR</a></p>
+</li>
+<li><p>Para ejecutarlo deberan abrir una terminal (linux) o el famoso simbolo del sistema (Windows) y con eso desplazarce hasta donde descargaron el jar y ejecutar lo siguiente:</p></li>
+</ol>
+
+<pre><code>$ java -jar Clapsy-1.0.jar NOMBRE_TU_ALGORITMO.algoritmo 
+</code></pre>
+
+<p>Si bien no es una convencion pueden poner a los files que usan para el algoritmo como .algoritmo. La libreria tomara el archivo y lo tratara de ejecutar. Traten de seguir las convenciones de escritura que son bien similares o iguales a las de la catedra, explicada mas abajo.
+ En la carpeta de algoritmos pueden encontrar algunos ejemplos para que puedan probarla de la forma explicada ayer..</p>
+
+<pre><code> $ java -jar Clapsy-1.0.jar algoritmos/Prueba.algoritmo
+</code></pre>
+
+<p>Si estan por trabajar con secuencias, ademas de pasarle el algoritmo para que lo compile deben enviar la secuencia con la van a trabajar de la siguiente forma</p>
+
+<pre><code> $ java -jar Clapsy-1.0.jar algoritmos/Secuencias.algoritmo secuencias/palabrasI.sec
+</code></pre>
+
+<p>Donde <em>secuencias/palabrasI.sec</em> es un archivo que contiene una secuencia de caracteres.</p>
+
+<h2>
+<a id="como-usarla-for-pro-users" class="anchor" href="#como-usarla-for-pro-users" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Como Usarla //For Pro Users</h2>
+
+<ol>
+<li>
+<p>Para poder bajar el codigo fuente deberan de tener instalado GIT en su computadora... Para bajarse pueden descargarse GIT desd aqui...</p>
+
+<p><a href="https://git-scm.com/downloads">Link de Descarga de GIT</a></p>
+</li>
+<li><p>Y luego realizar por la consola de comandos lo siguiente:</p></li>
+</ol>
+
+<pre><code>    git clone https://github.com/justomiguel/Clapsy.git
+</code></pre>
+
+<ol>
+<li>
+<a href="https://maven.apache.org/install.html">Descarga de Maven</a> (Seguir los pasos de la pagina y despues por consola hacer), de esa forma les bajara las dependencias, esto es opcional ya que la ide trae maven por defecto pero seria bueno que lo hagan</li>
+</ol>
+
+<pre><code>    mvn clean install   
+</code></pre>
+
+<ol>
+<li>
+<p>Pueden usar la libreria con una IDE de preferencia o bien usar INTELLIJ IDEA desde aqui! Bajense el community! Un abrazo!</p>
+
+<p><a href="https://www.jetbrains.com/idea/download/">Descarga de la IDE</a></p>
+</li>
+<li>
+<p>Abran el proyecto con la IDE y vayan hasta la clase Main que se encuentra en com/frre/practica/isi/algoritmos/genericos</p>
+
+<p><img src="http://i.imgur.com/1DwNCJX.jpg" alt=""></p>
+</li>
+<li><p>Para compilarlos y ejecutarlos solo deben hacer click derecho sobre el archivo y elegir la opcion de run y colocar sobre las opciones de ejecucion el nombre del archivo que quieran ejecutar. Y la magia sucede!!</p></li>
+</ol>
+
+<h2>
+<a id="documentacion" class="anchor" href="#documentacion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentacion</h2>
+
+<p><strong>Un Algoritmo basico</strong> </p>
+
+<p>Todo algoritmo debe tener una estructura similar a la siguiente de forma que el analizador la tome...</p>
+
+<pre><code>Accion AlgunNombre es;
+
+    Ambiente
+        //Variables aqui
+
+    Algoritmo
+
+        //Cuerpo del algoritmo aqui
+
+    Fin_Algoritmo
+
+Fin_Accion;
+</code></pre>
+
+<p><strong>Definiendo Variables y Solicitando datos al usuario</strong> </p>
+
+<pre><code>Accion Prueba es;
+
+    Ambiente
+        nombre: AlfaNumerico;
+        apellido: AlfaNumerico;
+
+    Algoritmo
+
+        Escribir("Ingrese nombre");
+        Leer(nombre);
+        Escribir("Ingrese apellido");
+        Leer(apellido);
+        Escribir("Programando like a champ ",apellido," ",nombre);
+
+    Fin_Algoritmo
+
+Fin_Accion;
+</code></pre>
+
+<ul>
+<li>Como veran para escribir por pantalla y separar de variables o de cadenas explicitas deben usar la "," como lo hacemos en clase.</li>
+</ul>
+
+<p><strong>Usando setencias condicionales</strong> </p>
+
+<ul>
+<li>Pueden usar el condicional simple usando y/o para concatenar expresiones mas complejas</li>
+</ul>
+
+<pre><code>Si(apellido = "Vargas" y nombre = "Migue")entonces;
+    Escribir("Grande ",apellido," ",nombre);
+Fin_si
+</code></pre>
+
+<ul>
+<li>O bien usar el condicional alternativo</li>
+</ul>
+
+<pre><code>Si(apellido = "Vargas" y nombre = "Migue")entonces;
+    Escribir("Grande ",apellido," ",nombre);
+sino
+    Escribir("No esta bien!")
+Fin_si
+</code></pre>
+
+<ul>
+<li>O bien el anidado</li>
+</ul>
+
+<pre><code>Si(apellido = "Vargas" y nombre = "Migue")entonces;
+     Escribir("Grande ",apellido," ",nombre);
+sino si(apellido = "Bedoya")entonces
+     Escribir("Lobo: ",apellido," ",nombre);
+sino
+     Escribir("No esta bien!")
+Fin_si
+</code></pre>
+
+<ul>
+<li>O bien el multiple</li>
+</ul>
+
+<pre><code>        Segun(suma)hacer
+
+            &lt;50: Escribir("La suma es menor 50.")
+            =50: Escribir("La suma es igual a 50.")
+            &lt;=100: Escribir("La suma es mayor a 50 y menor o igual a 100.")
+            &lt;=200: Escribir("La suma es mayor a 100 y menor o igual a 200.")
+            Otros: Escribir("La suma es mayor a 200.")
+
+        Fin_segun
+</code></pre>
+
+<p><strong>Usando setencias repetitivas</strong> </p>
+
+<ul>
+<li>Manejada por contador o el para</li>
+</ul>
+
+<pre><code>Para(i:=0 hasta 50, i:=i+2)hacer
+   numero := numero +1;
+   Escribir(numero)
+   Si(numero mod 6 = 0)entonces
+     Escribir("****")
+   Fin_si
+Fin_para
+</code></pre>
+
+<ul>
+<li>Post Test o el repetir</li>
+</ul>
+
+<pre><code>Repetir
+   numero := numero +1;
+   Si(numero mod 2 = 0)entonces
+      Escribir(numero)
+   Fin_si
+Hasta(numero &lt; 100);
+</code></pre>
+
+<ul>
+<li>Pre Test o el mientras</li>
+</ul>
+
+<pre><code>Mientras(i &lt; 100)hacer
+  i := i +1;
+  Escribir(i)
+  Si(i mod 6 = 0)entonces
+    Escribir("****")
+  Fin_si
+Fin_mientras
+</code></pre>
+
+<p><strong>Trabajando con secuencias de caracteres</strong> </p>
+
+<ul>
+<li>Al trabajar con secuencias debemos ademas al momento de ejecutar crear un archivo de la secuencia que se va a recorrer que contenga blancos y las palabras en el formato que se esperan. En este ejemplo se usa la secuencia que se encuentra en la carpeta secuencias/palabrasI.sec. Hacer un algoritmo que recorra una secuencia de caracteres y cuente las palabras que comiencen con la letra que se ingrese por teclado.</li>
+</ul>
+
+<pre><code>Accion suma es
+
+    Ambiente
+
+        s: Secuencia de caracteres;
+        v: caracter;
+        car: caracter;
+        CONT: entero;
+
+    Algoritmo
+
+        Escribir("Ingrese el caracter a buscar");
+        Leer(car);
+        Arrancar(s);
+        Avanzar(s,v);
+        CONT:=0;
+        Mientras(v &lt;&gt; "*")hacer
+            Mientras(v = " ")hacer
+                Avanzar(s,v);
+            Fin_mientras
+            Si(v = car)entonces
+                CONT:=CONT+1;
+            Fin_si
+            Mientras((v &lt;&gt; " ") y (v &lt;&gt; "*"))hacer
+                Avanzar(s,v);
+            Fin_mientras
+        Fin_mientras
+        Escribir("Hay ",CONT," palabras que comienzan con ",car,".");
+        Cerrar(s);
+
+    Fin_Algoritmo
+
+Fin_accion
+
+</code></pre>
+
+<p><strong>Poniendonos pro!</strong> </p>
+
+<ul>
+<li>Hacer un algoritmo que imprima los numeros primos del 1 al 100</li>
+</ul>
+
+<pre><code>Accion Prueba es;
+
+    Ambiente
+        cont:entero;
+        i:entero;
+        j:entero;
+
+    Algoritmo
+
+        Escribir("Escribir todos los numeros primos del 1 al 100");
+        numero := 0;
+        i := 2;
+        //escribo el 1 por que es primo comienzo desde el 2 sino la logica del condicional no me sirve
+        Escribir(1);
+        Mientras(i &lt; 100)hacer
+            cont := 0;
+            Para(j=1 hasta i, j++)hacer
+                Si(i mod j = 0)entonces
+                    cont := cont + 1;
+                Fin_si
+            Fin_para
+            Si(cont = 2)entonces
+                Escribir(i);
+            Fin_si
+            i := i +1;
+        Fin_mientras
+
+    Fin_Algoritmo
+
+Fin_Accion;
+</code></pre>
+
+<p>En la medida que pueda agregare mas cosas. Estaria genial que vayan probando la libreria y me digan si con algun ejercicio no les anduvo y me lo pasen!</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<pre><code>Copyright 2016 Justo Vargas
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Clapsy maintained by <a href="https://github.com/justomiguel">justomiguel</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
