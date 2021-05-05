@@ -307,15 +307,27 @@ public class Utils {
                 URLClassLoader classLoader = URLClassLoader.newInstance(new URL[]{new File("").toURI().toURL()});
                 Class.forName("Prueba", true, classLoader).getDeclaredMethod("main", new Class[]{String[].class}).invoke(null, new Object[]{null});
             } catch (ClassNotFoundException e) {
+                System.err.println("-----------------------------------------------");
+                System.err.println("----------      ERROR EN CLASE      -----------");
+                System.err.println("-----------------------------------------------");
                 System.err.println("Class not found: " + e);
                 tryToDetectError(e, writer);
             } catch (NoSuchMethodException e) {
+                System.err.println("-----------------------------------------------");
+                System.err.println("---------     ERROR EN ALGORITMO    -----------");
+                System.err.println("-----------------------------------------------");
                 System.err.println("No such method: " + e);
                 tryToDetectError(e, writer);
             } catch (IllegalAccessException e) {
+                System.err.println("-----------------------------------------------");
+                System.err.println("----------     ERROR EN ACCESO      -----------");
+                System.err.println("-----------------------------------------------");
                 System.err.println("Illegal access: " + e);
                 tryToDetectError(e, writer);
             } catch (InvocationTargetException e) {
+                System.err.println("-----------------------------------------------");
+                System.err.println("----------    ERROR EN EJECUCION    -----------");
+                System.err.println("-----------------------------------------------");
                 System.err.println("Invocation target: " + e);
                 tryToDetectError(e, writer);
             } catch (Exception e){
