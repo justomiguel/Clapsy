@@ -304,10 +304,8 @@ public class Utils {
 
         if (success) {
             try {
-
                 URLClassLoader classLoader = URLClassLoader.newInstance(new URL[]{new File("").toURI().toURL()});
                 Class.forName("Prueba", true, classLoader).getDeclaredMethod("main", new Class[]{String[].class}).invoke(null, new Object[]{null});
-
             } catch (ClassNotFoundException e) {
                 System.err.println("Class not found: " + e);
                 tryToDetectError(e, writer);

@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bb7f9b7-e69f-408a-956f-356cb1de9caa" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/algoritmos/ProgramaEdad.algoritmo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/algoritmos/ProgramaSegundos.algoritmo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Clapsy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Clapsy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prueba.class" beforeDir="false" afterPath="$PROJECT_DIR$/Prueba.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algoritmos/Prueba.algoritmo" beforeDir="false" afterPath="$PROJECT_DIR$/algoritmos/Prueba.algoritmo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -360,7 +351,7 @@
       <workItem from="1611330208889" duration="1030000" />
       <workItem from="1615983536382" duration="646000" />
       <workItem from="1620093876781" duration="7582000" />
-      <workItem from="1620229077222" duration="3491000" />
+      <workItem from="1620229077222" duration="3795000" />
     </task>
     <servers />
   </component>
@@ -455,27 +446,27 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java</url>
-          <line>451</line>
+          <line>452</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java</url>
-          <line>721</line>
+          <line>722</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java</url>
-          <line>796</line>
+          <line>797</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java</url>
-          <line>793</line>
+          <line>794</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/frre/library/Utils.java</url>
-          <line>320</line>
+          <line>318</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
