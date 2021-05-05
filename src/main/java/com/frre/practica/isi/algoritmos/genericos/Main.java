@@ -28,13 +28,16 @@ public class Main {
                         }
                         Utils.analizeAndExec(newArgs[0], dirSecuenciaArchivo, DEBUG_MODE);
                     } catch (Exception e) {
+                        System.err.println("-----------------------------------------------");
+                        System.err.println("---------     ERROR EN ALGORITMO    -----------");
+                        System.err.println("-----------------------------------------------");
                         System.out.println("Ha sucedido un error utilizando la libreria. Verifica que el algoritmo este correcto.");
                         System.out.println("Detalles del Error: " + e.getMessage());
                         System.out.println(Arrays.toString(e.getStackTrace()));
                     }
                 }
 
-                return "Exito!";
+                return "Finalizado!";
             }
 
         };
@@ -46,6 +49,9 @@ public class Main {
             final Future<Object> f = service.submit(analizeSintaxAndExecute(args));
             System.out.println(f.get(3, TimeUnit.MINUTES));
         } catch (final TimeoutException e) {
+            System.err.println("-----------------------------------------------");
+            System.err.println("---------     ERROR EN TIMEOUT     -----------");
+            System.err.println("-----------------------------------------------");
             System.err.println("Revisa tu algoritmo, ya que probablemente entro en un bucle infinito debido a que ya paso mas de 3 minutos sin respuesta");
             System.err.println("Cerrando programa por error de Timeout");
         } catch (final Exception e) {
