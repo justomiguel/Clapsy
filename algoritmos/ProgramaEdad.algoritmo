@@ -1,0 +1,14 @@
+Acción ProgramaEdad es;
+	Ambiente
+		anioNacimiento, edad, anioActual : entero
+		nombre	 : alfanumerico
+	Algoritmo
+		Escribir("Ingrese su nombre");
+		Leer(nombre);
+		Escribir("Ingrese su año de nacimiento");
+		Leer(anioNacimiento);
+		anioActual := 2021;
+		edad := anioActual - anioNacimiento;
+		Escribir(nombre," su edad es de ",edad);
+	fin_algoritmo
+Fin_Accion

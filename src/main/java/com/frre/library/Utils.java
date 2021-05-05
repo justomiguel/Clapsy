@@ -310,13 +310,37 @@ public class Utils {
 
             } catch (ClassNotFoundException e) {
                 System.err.println("Class not found: " + e);
+                tryToDetectError(e, writer);
             } catch (NoSuchMethodException e) {
                 System.err.println("No such method: " + e);
+                tryToDetectError(e, writer);
             } catch (IllegalAccessException e) {
                 System.err.println("Illegal access: " + e);
+                tryToDetectError(e, writer);
             } catch (InvocationTargetException e) {
                 System.err.println("Invocation target: " + e);
+                tryToDetectError(e, writer);
+            } catch (Exception e){
+                tryToDetectError(e, writer);
             }
+        }
+    }
+
+    private static void tryToDetectError(Exception e, StringWriter writer) {
+        try{
+            for (int i = 0; i < e.getCause().getStackTrace().length; i++) {
+                StackTraceElement x = e.getCause().getStackTrace()[i];
+                if (x.getFileName().equalsIgnoreCase("Prueba.java")){
+                    System.err.println("Causa: "+e.getCause().toString());
+                    if (e.getCause() instanceof InputMismatchException){
+                        System.err.println("La asignacion de tipos no fue la correcta");
+                    }
+                    System.err.println(writer.getBuffer().toString().split("\n")[x.getLineNumber()-1]);
+                    return;
+                }
+            }
+        } catch (Exception r){
+            System.err.println("No more details to add");
         }
     }
 
@@ -333,21 +357,29 @@ public class Utils {
                 String name = variable[0].trim();
                 String dataType = Utils.getType(variable[1].trim());
 
-                theVariables.put(name, dataType);
-
-                if (dataType.equals("String[]")){
-                    if (secuenciaArchivoContents == null){
-                        throw new AlgorithmException("No se especifico entrada de secuencia");
-                    } else {
-                        writer.write(" static " + dataType + SPACE + name + " = new String[]{");
-                        for (int j = 0; j < secuenciaArchivoContents.length(); j++) {
-                            writer.write("\""+String.valueOf(secuenciaArchivoContents.charAt(j))+"\",");
-                        }
-                        writer.write("\"*\"}"+ END_LINE + NEW_LINE);
-                        writer.write(" static int VENTANA_SECUENCIA"+name+" = 0"+ END_LINE + NEW_LINE);
-                    }
+                String[] subvariables;
+                if (name.contains(",")){
+                    subvariables = name.split(",");
                 } else {
-                    writer.write(" static " + dataType + SPACE + name + END_LINE + NEW_LINE);
+                    subvariables = new String[1];
+                    subvariables[0] = name;
+                }
+                for (int j = 0; j < subvariables.length; j++) {
+                    theVariables.put(subvariables[j], dataType);
+                    if (dataType.equals("String[]")){
+                        if (secuenciaArchivoContents == null){
+                            throw new AlgorithmException("No se especifico entrada de secuencia");
+                        } else {
+                            writer.write(" static " + dataType + SPACE + subvariables[j] + " = new String[]{");
+                            for (int k = 0; k < secuenciaArchivoContents.length(); k++) {
+                                writer.write("\""+String.valueOf(secuenciaArchivoContents.charAt(k))+"\",");
+                            }
+                            writer.write("\"*\"}"+ END_LINE + NEW_LINE);
+                            writer.write(" static int VENTANA_SECUENCIA"+subvariables[j]+" = 0"+ END_LINE + NEW_LINE);
+                        }
+                    } else {
+                        writer.write(" static " + dataType + SPACE + subvariables[j] + END_LINE + NEW_LINE);
+                    }
                 }
             }
         } catch (IndexOutOfBoundsException e){
@@ -608,11 +640,12 @@ public class Utils {
 
                     return true;
                 } else {
-                    if (titAMostrar.contains(",\"") || titAMostrar.contains("\",")) {
+                    if (titAMostrar.contains(",")) {
                         String[] concat = titAMostrar.split(",");
                         writer.write("System.out.println(");
                         for (int i = 0; i < concat.length; i++) {
-                            writer.write(concat[i]);
+
+                            writer.write("("+concat[i]+")");
                             if (i != concat.length - 1) {
                                 writer.write("+");
                             }
@@ -624,7 +657,9 @@ public class Utils {
                     return true;
                 }
             } else if (line.contains(LEER) || line.contains(LEER.toLowerCase())) {
-                String titALeer = line.substring(getPositionOf(LEER, line) + LEER.length(), getPositionOf(")", line));
+                int posLeer = getPositionOf(LEER, line);
+                int posEndLine = getPositionOf(")", line);
+                String titALeer = line.substring(posLeer + LEER.length(), posEndLine);
                 if (titALeer.contains(",")) {
                     String[] vars = titALeer.split(",");
                     for (int i = 0; i < vars.length; i++) {
@@ -702,8 +737,11 @@ public class Utils {
                 return true;
             } else if (line.contains(":=") && !line.contains(PARA)) {
                 String[] assigns = line.split(":=");
-                if (theVariables.get(assigns[0].trim()) != null){
-                    writer.write(assigns[0].trim() + SPACE + "=" + SPACE + assigns[1].trim() + ";\n");
+                assigns[0] = assigns[0].trim();
+                assigns[1] = assigns[1].trim();
+
+                if (lookFor(theVariables, assigns[0])){
+                    writer.write(assigns[0] + SPACE + "=" + SPACE + assigns[1]+ ";\n");
                 } else {
                     throw  new AlgorithmException("Variable no encontrada en ambiente "+assigns[0].trim());
                 }
@@ -713,7 +751,19 @@ public class Utils {
         return false;
     }
 
-    public static String getTypeForInput(String var) {
+    private static boolean lookFor(HashMap<String, String> theVariables, String assign) {
+        for (String variable : theVariables.keySet()) {
+            if (variable.contains(assign)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static String getTypeForInput(String var) throws AlgorithmException{
+        if (isNull(theVariables.get(var))){
+            throw new AlgorithmException("Variable no encontrada "+var);
+        }
         if (theVariables.get(var).equalsIgnoreCase("String")) {
             return "";
         }
@@ -796,4 +846,9 @@ public class Utils {
         }
         return nuevoArray;
     }
+
+    public static boolean isNull(Object c){
+        return c == null;
+    }
+
 }

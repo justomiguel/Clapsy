@@ -1,0 +1,15 @@
+Accion ProgramaSegundos es;
+
+    Ambiente
+        segundos,h,m,s : entero
+    Algoritmo
+
+        Escribir("Cantidad de Segundos");
+        Leer(segundos);
+        h := (segundos/60)/60;
+        m := segundos/60 mod 60;
+        s := ( segundos mod 60 ) mod 60;
+        Escribir(h,"H ",m,"m ",s,"s ");
+    Fin_Algoritmo
+
+Fin_Accion;
